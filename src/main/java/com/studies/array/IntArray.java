@@ -1,6 +1,6 @@
 package com.studies.array;
 
-public class Array {
+public class IntArray {
     public static void main(String[] args) {
         int[] array = new int[10];
 
@@ -24,6 +24,8 @@ public class Array {
         for(int i = 0; i < array.length; i++){
             System.out.println(array[i]);
         }
+
+        System.out.println("fim...");
 
     }
 }
