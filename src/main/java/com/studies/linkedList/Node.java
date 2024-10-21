@@ -6,6 +6,10 @@ public class Node {
     private String value;
     private Node next;
 
+    public Node(String newValue) {
+        this.value = newValue;
+    }
+
     public String getValue() {
         return value;
     }

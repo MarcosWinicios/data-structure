@@ -4,7 +4,32 @@ public class LinkedList {
 
     private Node first;
     private Node last;
-    private Integer size;
+    private int size;
+
+    public LinkedList() {
+        this.size = 0;
+    }
+
+    public void add(String newValue) {
+        Node newNode = new Node(newValue);
+
+        if (this.first == null && this.last == null) {
+            this.first = newNode;
+        } else {
+            this.last.setNext(newNode);
+        }
+        this.last = newNode;
+        this.size++;
+
+    }
+
+    public void remove(String newValue) {
+
+    }
+
+    public Node get(int position){
+        return  null;
+    }
 
     public Node getFirst() {
         return first;
@@ -26,7 +51,7 @@ public class LinkedList {
         return size;
     }
 
-    public void setSize(Integer size) {
+    public void setSize(int size) {
         this.size = size;
     }
 }
