@@ -27,8 +27,20 @@ public class LinkedList {
 
     }
 
-    public Node get(int position){
-        return  null;
+    public Node get(int position) {
+        //linear search algorithm
+        return this.getLinearSearch(position);
+    }
+
+    private Node getLinearSearch(int position){
+        Node current = this.first;
+
+        for(int i = 0; i < position; i++){
+            if(current.getNext() != null){
+                current = current.getNext();
+            }
+        }
+        return current;
     }
 
     public Node getFirst() {
