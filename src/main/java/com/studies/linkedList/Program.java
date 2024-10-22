@@ -1,26 +1,34 @@
 package com.studies.linkedList;
 
+import com.sun.security.jgss.GSSUtil;
+
 public class Program {
 
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
 
-        System.out.println("Tamanho: " +  list.getSize());
+        linkedLinkToStringDemo(list);
 
         list.add("AC");
         list.add("BA");
         list.add("CE");
         list.add("DF");
 
-        System.out.println("Tamanho: " +  list.getSize());
-        System.out.println("Primeiro: " + list.getFirst().getValue());
-        System.out.println("Último: " + list.getLast().getValue());
 
         printLinkedList(list);
 
-        //remover estado CE
-        list.remove("CE");
-        System.out.println("removeu estado CE");
+        //remover estado CE (elemento do meio da lista)
+//        testRemoveValue("CE", list);
+
+        //remover estado AC (primeiro elemento da lista)
+//        testRemoveValue("AC", list);
+
+        //remover o etado DF (último elemento da lista)
+        testRemoveValue("DF", list);
+
+
+        list.add("SP");
+        System.out.println("Adicionando estado SP");
         printLinkedList(list);
     }
 
@@ -29,4 +37,22 @@ public class Program {
             System.out.println(list.get(i).getValue());
         }
     }
+
+    public static void testRemoveValue(String value, LinkedList list){
+        list.remove(value);
+        System.out.println("Removeu o estado " + value);
+        printLinkedList(list);
+    }
+
+    public static void linkedLinkToStringDemo(LinkedList list){
+        StringBuilder value = new StringBuilder()
+                .append("\n")
+                .append("Tamanho: ").append(list.getSize()).append("\n")
+                .append("Primeiro: ").append(list.getFirst()).append("\n")
+                .append("Último: ").append(list.getLast()).append("\n");
+
+        System.out.println(value);
+    }
+
+//    public static  void testAddValue()
 }
