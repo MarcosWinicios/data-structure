@@ -23,8 +23,19 @@ public class LinkedList {
 
     }
 
-    public void remove(String newValue) {
+    public void remove(String value) {
+         Node previous = null;
+         Node current = this.first;
 
+         for(int i = 0 ; i < this.size; i++){
+            if(current.getValue().equalsIgnoreCase(value)){
+                previous.setNext(current.getNext());
+                current = null;
+                break;
+            }
+            previous =  current;
+            current =  current.getNext();
+         }
     }
 
     public Node get(int position) {
