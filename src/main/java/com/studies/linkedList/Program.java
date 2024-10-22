@@ -16,11 +16,6 @@ public class Program {
         System.out.println("Primeiro: " + list.getFirst().getValue());
         System.out.println("Último: " + list.getLast().getValue());
 
-        System.out.println(list.get(0).getValue());
-        System.out.println(list.get(1).getValue());
-        System.out.println(list.get(2).getValue());
-        System.out.println(list.get(3).getValue());
-
         printLinkedList(list);
 
         //remover estado CE
@@ -30,7 +25,6 @@ public class Program {
     }
 
     public static void printLinkedList(LinkedList list){
-
         for(int i = 0; i < list.getSize(); i++){
             System.out.println(list.get(i).getValue());
         }

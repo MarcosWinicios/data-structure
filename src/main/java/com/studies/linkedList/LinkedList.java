@@ -31,6 +31,7 @@ public class LinkedList {
             if(current.getValue().equalsIgnoreCase(value)){
                 previous.setNext(current.getNext());
                 current = null;
+                this.size--;
                 break;
             }
             previous =  current;
