@@ -24,19 +24,31 @@ public class LinkedList {
     }
 
     public void remove(String value) {
-         Node previous = null;
-         Node current = this.first;
+        Node previous = null;
+        Node current = this.first;
 
-         for(int i = 0 ; i < this.size; i++){
-            if(current.getValue().equalsIgnoreCase(value)){
-                previous.setNext(current.getNext());
-                current = null;
+        for (int i = 0; i < this.size; i++) {
+            if (current.getValue().equalsIgnoreCase(value)) {
+
+                if(this.size == 1) {
+                    this.first = null;
+                    this.last = null;
+                }else if(current == this.first){
+                    this.first =  current.getNext();
+                    current.setNext(null);
+                } else if (current == this.last) {
+                    previous.setNext(null);
+                    this.last = previous;
+                }else {
+                    previous.setNext(current.getNext());
+                    current = null;
+                }
                 this.size--;
                 break;
             }
-            previous =  current;
-            current =  current.getNext();
-         }
+            previous = current;
+            current = current.getNext();
+        }
     }
 
     public Node get(int position) {
@@ -44,11 +56,11 @@ public class LinkedList {
         return this.getLinearSearch(position);
     }
 
-    private Node getLinearSearch(int position){
+    private Node getLinearSearch(int position) {
         Node current = this.first;
 
-        for(int i = 0; i < position; i++){
-            if(current.getNext() != null){
+        for (int i = 0; i < position; i++) {
+            if (current.getNext() != null) {
                 current = current.getNext();
             }
         }
