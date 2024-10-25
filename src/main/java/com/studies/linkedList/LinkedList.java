@@ -1,17 +1,17 @@
 package com.studies.linkedList;
 
-public class LinkedList {
+public class LinkedList<Type> {
 
-    private Node first;
-    private Node last;
+    private Node<Type> first;
+    private Node<Type> last;
     private int size;
 
     public LinkedList() {
         this.size = 0;
     }
 
-    public void add(String newValue) {
-        Node newNode = new Node(newValue);
+    public void add(Type newValue) {
+        Node<Type>  newNode = new Node<Type>(newValue);
 
         if (this.first == null && this.last == null) {
             this.first = newNode;
@@ -23,12 +23,12 @@ public class LinkedList {
 
     }
 
-    public void remove(String value) {
-        Node previous = null;
-        Node current = this.first;
+    public void remove(Type value) {
+        Node<Type>  previous = null;
+        Node<Type>  current = this.first;
 
         for (int i = 0; i < this.size; i++) {
-            if (current.getValue().equalsIgnoreCase(value)) {
+            if (current.getValue().equals(value)) {
 
                 if(this.size == 1) {
                     this.first = null;
@@ -51,13 +51,13 @@ public class LinkedList {
         }
     }
 
-    public Node get(int position) {
+    public Node<Type>  get(int position) {
         //linear search algorithm
         return this.getLinearSearch(position);
     }
 
-    private Node getLinearSearch(int position) {
-        Node current = this.first;
+    private Node<Type>  getLinearSearch(int position) {
+        Node<Type>  current = this.first;
 
         for (int i = 0; i < position; i++) {
             if (current.getNext() != null) {
@@ -67,19 +67,19 @@ public class LinkedList {
         return current;
     }
 
-    public Node getFirst() {
+    public Node<Type>  getFirst() {
         return first;
     }
 
-    public void setFirst(Node first) {
+    public void setFirst(Node<Type>  first) {
         this.first = first;
     }
 
-    public Node getLast() {
+    public Node<Type> getLast() {
         return last;
     }
 
-    public void setLast(Node last) {
+    public void setLast(Node<Type>  last) {
         this.last = last;
     }
 
