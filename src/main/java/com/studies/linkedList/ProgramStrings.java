@@ -5,7 +5,7 @@ public class ProgramStrings {
     public static void main(String[] args) {
         LinkedList<String> list = new LinkedList<>();
 
-        linkedListToStringDemo(list);
+        LinkedListUtils.linkedListToStringDemo(list);
 
         list.add("AC");
         list.add("BA");
@@ -13,55 +13,30 @@ public class ProgramStrings {
         list.add("DF");
 
 
-        printLinkedList(list);
+        LinkedListUtils.printLinkedList(list);
 
         //remover estado BA (elemento do meio da lista)
-        testRemoveValue("BA", list);
+        LinkedListUtils.testRemoveValue("BA", list);
 
 
         //remover estado CE (elemento do meio da lista)
-        testRemoveValue("CE", list);
+        LinkedListUtils.testRemoveValue("CE", list);
 
         //remover estado AC (primeiro elemento da lista)
-        testRemoveValue("AC", list);
+        LinkedListUtils.testRemoveValue("AC", list);
 
         //remover o etado DF (último elemento da lista)
-        testRemoveValue("DF", list);
+        LinkedListUtils.testRemoveValue("DF", list);
 
 
         list.add("SP");
         System.out.println("Adicionando estado SP");
-        printLinkedList(list);
+        LinkedListUtils.printLinkedList(list);
 
         //remover o etado SP (último elemento da lista)
-        testRemoveValue("SP", list);
+        LinkedListUtils.testRemoveValue("SP", list);
 
         list.add("RJ");
-        printLinkedList(list);
+        LinkedListUtils.printLinkedList(list);
     }
-
-    public static void printLinkedList(LinkedList list){
-        linkedListToStringDemo(list);
-        for(int i = 0; i < list.getSize(); i++){
-            System.out.println(list.get(i).getValue());
-        }
-    }
-
-    public static void testRemoveValue(String value, LinkedList list){
-        list.remove(value);
-        System.out.println("Removeu o estado " + value);
-        printLinkedList(list);
-    }
-
-    public static void linkedListToStringDemo(LinkedList list){
-        StringBuilder value = new StringBuilder()
-                .append("\n")
-                .append("Tamanho: ").append(list.getSize()).append("\n")
-                .append("Primeiro: ").append((list.getFirst() != null ? list.getFirst().getValue() : "")).append("\n")
-                .append("Último: ").append((list.getLast() !=null ? list.getLast().getValue() : "")).append("\n");
-
-        System.out.println(value);
-    }
-
-//    public static  void testAddValue()
 }
