@@ -3,7 +3,7 @@ package com.studies.linkedList;
 public class Program {
 
     public static void main(String[] args) {
-        LinkedList list = new LinkedList();
+        LinkedList<String> list = new LinkedList<>();
 
         linkedListToStringDemo(list);
 
