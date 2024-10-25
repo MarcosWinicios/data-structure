@@ -1,28 +1,28 @@
 package com.studies.linkedList;
 
 
-public class Node {
+public class Node<Type> {
 
-    private String value;
-    private Node next;
+    private Type value;
+    private Node<Type> next;
 
-    public Node(String newValue) {
+    public Node(Type newValue) {
         this.value = newValue;
     }
 
-    public String getValue() {
+    public Type getValue() {
         return value;
     }
 
-    public void setValue(String value) {
+    public void setValue(Type value) {
         this.value = value;
     }
 
-    public Node getNext() {
+    public Node<Type> getNext() {
         return next;
     }
 
-    public void setNext(Node next) {
+    public void setNext(Node<Type> next) {
         this.next = next;
     }
 }
