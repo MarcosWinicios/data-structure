@@ -1,6 +1,6 @@
 package com.studies.linkedList;
 
-public class Program {
+public class ProgramStrings {
 
     public static void main(String[] args) {
         LinkedList<String> list = new LinkedList<>();
