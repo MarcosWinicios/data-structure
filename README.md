@@ -4,6 +4,7 @@ Projeto dedicado à prática e a estudos referentes a estrutura de dados utiliza
 
 ### Estruturas de dados já adicionadas
 - Array (Vetor)
+- Linked List (Lista encadeada)
 
 ### Algoritmos já adicionados
 - Linear Search (Busca linear)
