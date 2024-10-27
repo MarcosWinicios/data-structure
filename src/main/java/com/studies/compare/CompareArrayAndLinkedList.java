@@ -5,25 +5,30 @@ import com.studies.linkedList.LinkedList;
 import java.util.ArrayList;
 
 public class CompareArrayAndLinkedList {
+
+    private static ArrayList<Integer> array = new ArrayList<>();
+    private static LinkedList<Integer> linkedList = new LinkedList<>();
+
+    private static long initialTime;
+    private static long finalTime;
+
     public static void main(String[] args) {
-        LinkedList<Integer> linkedList = new LinkedList<>();
 
-        ArrayList<Integer> array = new ArrayList<>();
+        compareAddOperation(1000);
+        compareReadOperation();
 
-        System.out.println("__Adicionar elementos__");
+    }
 
-        //array
-        int limit = 10000;
-        long initialTime =  System.currentTimeMillis();
-        long finalTime;
+    public static void compareAddOperation(int limit){
+        System.out.println("*** Adicionar elementos ***");
+        initialTime =  System.currentTimeMillis();
 
         for(int i = 0; i < limit; i++){
             array.add(i);
         }
-
         finalTime = System.currentTimeMillis();
 
-        System.out.println("Adicionou " + limit + " elemenetos no vetor: ");
+        System.out.println("Adicionou " + limit + " elementos ao vetor: ");
         System.out.println(finalTime - initialTime);
 
         //linkedlist
@@ -34,10 +39,12 @@ public class CompareArrayAndLinkedList {
 
         finalTime = System.currentTimeMillis();
 
-        System.out.println("\nAdicionou " + limit + " elemenetos no linkedList: ");
+        System.out.println("\nAdicionou " + limit + " elemenetos ao linkedList: ");
         System.out.println(finalTime - initialTime);
+    }
 
-        System.out.println("\n__Ler valores__");
+    public static void compareReadOperation(){
+        System.out.println("\n*** Ler valores ***");
         //array
         initialTime = System.currentTimeMillis();
         for(int i = 0; i < array.size(); i++){
