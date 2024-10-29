@@ -67,6 +67,11 @@ public class LinkedList<Type> {
         return current;
     }
 
+    public IteratorLinkedList<Type> getIterator(){
+        return new IteratorLinkedList<Type>(this.first);
+    }
+
+
     public Node<Type>  getFirst() {
         return first;
     }
