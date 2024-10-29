@@ -1,5 +1,7 @@
 package com.studies.linkedList;
 
+import com.studies.utils.Utils;
+
 public class ProgramClients {
 
     public static void main(String[] args) {
@@ -9,6 +11,7 @@ public class ProgramClients {
         clientLinkedList.add(new Client("Juca", "124"));
         clientLinkedList.add(new Client("Zé", "125"));
 
-        LinkedListUtils.printLinkedList(clientLinkedList);
+        Utils.printLinkedList(clientLinkedList);
     }
+
 }

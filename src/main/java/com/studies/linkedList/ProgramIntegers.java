@@ -1,5 +1,7 @@
 package com.studies.linkedList;
 
+import com.studies.utils.Utils;
+
 public class ProgramIntegers {
     public static void main(String[] args) {
         LinkedList<Integer> numbers = new LinkedList<>();
@@ -9,6 +11,6 @@ public class ProgramIntegers {
         numbers.add(5);
         numbers.add(3);
 
-        LinkedListUtils.printLinkedList(numbers);
+        Utils.printLinkedList(numbers);
     }
 }

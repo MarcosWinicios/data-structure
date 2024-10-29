@@ -1,11 +1,13 @@
 package com.studies.linkedList;
 
+import com.studies.utils.Utils;
+
 public class ProgramStrings {
 
     public static void main(String[] args) {
         LinkedList<String> list = new LinkedList<>();
 
-        LinkedListUtils.linkedListToStringDemo(list);
+        Utils.linkedListToStringDemo(list);
 
         list.add("AC");
         list.add("BA");
@@ -13,30 +15,30 @@ public class ProgramStrings {
         list.add("DF");
 
 
-        LinkedListUtils.printLinkedList(list);
+//        Utils.printLinkedList(list);
 
         //remover estado BA (elemento do meio da lista)
-        LinkedListUtils.testRemoveValue("BA", list);
+        Utils.linkedListRemoveValue("BA", list);
 
 
         //remover estado CE (elemento do meio da lista)
-        LinkedListUtils.testRemoveValue("CE", list);
+        Utils.linkedListRemoveValue("CE", list);
 
         //remover estado AC (primeiro elemento da lista)
-        LinkedListUtils.testRemoveValue("AC", list);
+        Utils.linkedListRemoveValue("AC", list);
 
         //remover o etado DF (último elemento da lista)
-        LinkedListUtils.testRemoveValue("DF", list);
+        Utils.linkedListRemoveValue("DF", list);
 
 
         list.add("SP");
         System.out.println("Adicionando estado SP");
-        LinkedListUtils.printLinkedList(list);
+        Utils.printLinkedList(list);
 
         //remover o etado SP (último elemento da lista)
-        LinkedListUtils.testRemoveValue("SP", list);
+        Utils.linkedListRemoveValue("SP", list);
 
         list.add("RJ");
-        LinkedListUtils.printLinkedList(list);
+        Utils.printLinkedList(list);
     }
 }
