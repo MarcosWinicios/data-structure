@@ -9,11 +9,17 @@ public class IteratorLinkedList<Type> {
     }
 
     public boolean hasNext(){
+        if(this.element == null) return false;
+
         return this.element.getNext() != null;
     }
 
     public Node<Type> getNext(){
         this.element =  this.element.getNext();
         return this.element.getNext();
+    }
+
+    public Node<Type> getElement() {
+        return element;
     }
 }
