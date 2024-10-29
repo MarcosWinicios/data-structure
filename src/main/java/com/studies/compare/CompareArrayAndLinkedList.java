@@ -1,8 +1,10 @@
 package com.studies.compare;
 
+import com.studies.linkedList.IteratorLinkedList;
 import com.studies.linkedList.LinkedList;
 
 import java.util.ArrayList;
+import java.util.WeakHashMap;
 
 public class CompareArrayAndLinkedList {
 
@@ -14,7 +16,7 @@ public class CompareArrayAndLinkedList {
 
     public static void main(String[] args) {
 
-        compareAddOperation(1000);
+        compareAddOperation(100000);
         compareReadOperation();
 
     }
@@ -64,7 +66,19 @@ public class CompareArrayAndLinkedList {
 
         finalTime = System.currentTimeMillis();
 
-        System.out.println("\nTempo de leitura do likedList: ");
+        System.out.println("\nTempo de leitura do likedList SEM iterator: ");
+        System.out.println(finalTime - initialTime);
+
+        initialTime = System.currentTimeMillis();
+        IteratorLinkedList<Integer> iterator = linkedList.getIterator();
+
+        while (iterator.hasNext()){
+            iterator.getNext();
+        }
+
+        finalTime = System.currentTimeMillis();
+
+        System.out.println("\nTempo de leitura do likedList COM iterator: ");
         System.out.println(finalTime - initialTime);
 
     }
