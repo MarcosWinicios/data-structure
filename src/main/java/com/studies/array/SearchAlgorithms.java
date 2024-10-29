@@ -2,7 +2,6 @@ package com.studies.array;
 
 import com.studies.utils.Utils;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class SearchAlgorithms {

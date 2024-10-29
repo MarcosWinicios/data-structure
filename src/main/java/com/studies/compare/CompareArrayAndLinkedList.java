@@ -4,7 +4,6 @@ import com.studies.linkedList.IteratorLinkedList;
 import com.studies.linkedList.LinkedList;
 
 import java.util.ArrayList;
-import java.util.WeakHashMap;
 
 public class CompareArrayAndLinkedList {
 
