@@ -6,9 +6,12 @@ import com.studies.linkedList.LinkedList;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.Set;
+import java.util.stream.IntStream;
 
 public class Utils {
 
@@ -77,6 +80,31 @@ public class Utils {
         }
         return result;
     }
+
+    public static int[] generateUniqueRandomArray(int size) {
+        if (size <= 0) {
+            throw new IllegalArgumentException("Size must be greater than 0.");
+        }
+
+        Random random = new Random();
+        Set<Integer> uniqueNumbers = new HashSet<>();
+
+        while (uniqueNumbers.size() < size) {
+            uniqueNumbers.add(random.nextInt(size * 10));
+        }
+
+        int[] result = uniqueNumbers.stream().mapToInt(Integer::intValue).toArray();
+        IntStream.range(0, result.length).forEach(i -> {
+            int j = random.nextInt(result.length);
+            int temp = result[i];
+            result[i] = result[j];
+            result[j] = temp;
+        });
+
+        return result;
+    }
+
+
 
     public static <T> void printSquareMatrix(List<List<T>> matrix) {
         System.out.println("\n" + matrix.toString() + "\n");
