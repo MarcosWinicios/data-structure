@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class SearchAlgorithms {
 
     public static void main(String[] args) {
-        int[] array = new int[8];
+        int[] array = new int[1000000];
 
 //        array = Utils.generateRandomIntegerArray(array.length);
         array = Utils.generateSortedIntegerArray(array.length);
@@ -26,9 +26,14 @@ public class SearchAlgorithms {
 
     //O(n)
     public static void linearSearch(int searchNumber, int[] array){
+        System.out.println("__BUSCA LINEAR__");
         boolean isPresent = false;
         int position = 0;
+        int count = 0;
+
         for(int i = 0; i < array.length;i++){
+            count++;
+
             if(array[i] == searchNumber){
                 isPresent = true;
                 position = i;
@@ -40,16 +45,23 @@ public class SearchAlgorithms {
         }else{
             System.out.println("Valor não encontrado");
         }
+
+        System.out.println("A busca linear realizou " + count + " testes.\n");
     }
 
+    //O(log n)
     public static void binarySearch(int searchNumber, int[] array){
+        System.out.println("__BUSCA BINÁRIA__");
         boolean isPresent = false;
         int init = 0;
         int end = array.length -1;
         int mid;
         int position = 0;
 
+        int count = 0;
+
         while (init <= end){
+            count++;
             mid = (int) ((end + init) / 2);
             if(array[mid] == searchNumber){
                 isPresent = true;
@@ -67,5 +79,7 @@ public class SearchAlgorithms {
         }else{
             System.out.println("Valor não encontrado");
         }
+
+        System.out.println("A busca binária realizou " + count + " testes\n");
     }
 }
