@@ -20,6 +20,7 @@ public class SearchAlgorithms {
         int searchNumber = reader.nextInt();
 
         linearSearch(searchNumber, array);
+        binarySearch(searchNumber, array);
 
     }
 
@@ -34,6 +35,33 @@ public class SearchAlgorithms {
                 break;
             }
         }
+        if(isPresent){
+            System.out.println("Elemento encontrado na posição: " + position);
+        }else{
+            System.out.println("Valor não encontrado");
+        }
+    }
+
+    public static void binarySearch(int searchNumber, int[] array){
+        boolean isPresent = false;
+        int init = 0;
+        int end = array.length -1;
+        int mid;
+        int position = 0;
+
+        while (init <= end){
+            mid = (int) ((end + init) / 2);
+            if(array[mid] == searchNumber){
+                isPresent = true;
+                position = mid;
+                break;
+            }else if(array[mid] < searchNumber){
+                init = mid + 1;
+            }else{
+                end = mid - 1;
+            }
+        }
+
         if(isPresent){
             System.out.println("Elemento encontrado na posição: " + position);
         }else{
