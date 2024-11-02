@@ -15,6 +15,16 @@ import java.util.stream.IntStream;
 
 public class Utils {
 
+    public static void printLine(){
+        printLine(25);
+    }
+
+    public static void printLine(int size){
+        for (int i = 0; i < size; i++){
+            System.out.print("-");
+        }
+    }
+
     private static final Random random = new Random();
 
     public static <T> void printList(List<T> list) {
@@ -144,7 +154,22 @@ public class Utils {
         System.out.println(Arrays.toString(array));
     }
 
-    public static void printArray(int[] array) {
+    public static void printArray(int[] array){
+        printArray(array, "Printando array");
+    }
+    public static void printArray(int[] array, boolean enablePrintMessage){
+        printArray(array, "", false);
+    }
+
+    public static void printArray(int[] array, String message){
+        printArray(array, message, true);
+    }
+
+    public static void printArray(int[] array, String message, boolean enablePrintMessage) {
+        if(enablePrintMessage){
+            System.out.println("\n" + message);
+        }
+
         System.out.println(Arrays.toString(array));
     }
 
