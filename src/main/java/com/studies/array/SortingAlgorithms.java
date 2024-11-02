@@ -4,25 +4,33 @@ import com.studies.utils.Utils;
 
 public class SortingAlgorithms {
 
-    public static void main(String[] args) {
-        int size = 100000;
-        int [] disorderedArray, sortedArray;
+    private static int[] disorderedArray;
+    private static int[] sortedArray;
+    private static int size = 100;
+    private final static Boolean PRINT_ARRAYS_ENABLE = true;
 
-//        disorderedArray = Utils.generateUniqueRandomArray(array.length);
+    public static void main(String[] args) {
+        String sotedArrayMessage =  "Array ordenado";
+        String desorderedArrayMessage =  "Array desordenado";
+
         disorderedArray = Utils.generateRandomIntegerArray(size);
-//
-//        System.out.println("Array desordenado: ");
-//        Utils.printArray(disorderedArray);
+        printSortedArray(sortedArray, desorderedArrayMessage);
 
         sortedArray = sortArrayBubleSort(disorderedArray);
-//        System.out.println("Array ordenado: ");
-//        Utils.printArray(sortedArray);
+        printSortedArray(sortedArray, sotedArrayMessage);
 
         sortedArray = sortArrayInsertionSort(disorderedArray);
-//        System.out.println("Array ordenado: ");
-//        Utils.printArray(sortedArray);
+        printSortedArray(sortedArray, sotedArrayMessage);
 
     }
+
+    private static void printSortedArray(int[] sortedArray, String message){
+        if(PRINT_ARRAYS_ENABLE){
+            System.out.println("\n" + message);
+            Utils.printArray(sortedArray);
+        }
+    }
+
 
     //O(N²)
     public static int[] sortArrayBubleSort(int [] array){
