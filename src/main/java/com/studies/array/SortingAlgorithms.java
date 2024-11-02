@@ -5,22 +5,28 @@ import com.studies.utils.Utils;
 public class SortingAlgorithms {
 
     public static void main(String[] args) {
-        int [] array = new int[10];
+        int size = 100000;
+        int [] disorderedArray, sortedArray;
 
-//        array = Utils.generateUniqueRandomArray(array.length);
-        array = Utils.generateRandomIntegerArray(array.length);
+//        disorderedArray = Utils.generateUniqueRandomArray(array.length);
+        disorderedArray = Utils.generateRandomIntegerArray(size);
+//
+//        System.out.println("Array desordenado: ");
+//        Utils.printArray(disorderedArray);
 
-        System.out.println("Array desordenado: ");
-        Utils.printArray(array);
+        sortedArray = sortArrayBubleSort(disorderedArray);
+//        System.out.println("Array ordenado: ");
+//        Utils.printArray(sortedArray);
 
-        array = sortArrayBubleSort(array);
+        sortedArray = sortArrayInsertionSort(disorderedArray);
+//        System.out.println("Array ordenado: ");
+//        Utils.printArray(sortedArray);
 
-        System.out.println("Array ordenado: ");
-        Utils.printArray(array);
     }
 
     //O(N²)
     public static int[] sortArrayBubleSort(int [] array){
+        System.out.println("\nOrdenando array de " + array.length + " posições com Bluble Sort");
         long init = System.currentTimeMillis();
         long end;
 
@@ -36,6 +42,31 @@ public class SortingAlgorithms {
         }
         end = System.currentTimeMillis();
         System.out.println("Tempo: " + (end - init));
+        return array;
+    }
+
+    //O(N²) -> Mais rápido que o buble sort
+    public static int[] sortArrayInsertionSort(int[] array){
+        System.out.println("\nOrdenando array de " + array.length + " posições com Insertion Sort");
+
+        long init = System.currentTimeMillis();
+        long end;
+
+        int aux, j;
+        for (int i = 1; i < array.length; i++){
+            aux = array[i];
+            j = i - 1;
+            while (j >= 0 && array[j] > aux){
+                array[j + 1] = array[j];
+                j--;
+            }
+
+            array[j + 1] =  aux;
+        }
+
+        end = System.currentTimeMillis();
+        System.out.println("Tempo: " + (end - init));
+
         return array;
     }
 }
