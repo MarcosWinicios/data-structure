@@ -4,33 +4,19 @@ import com.studies.utils.Utils;
 
 public class SortingAlgorithms {
 
-    private static int[] disorderedArray;
-    private static int[] sortedArray;
-    private static int size = 100;
     private final static Boolean PRINT_ARRAYS_ENABLE = true;
+    private final  static String SORTED_ARRAY_MESSAGE =  "Array ordenado";
+    private final  static String DESORDERED_ARRAY_MESSAGE =  "Array desordenado";
 
     public static void main(String[] args) {
-        String sotedArrayMessage =  "Array ordenado";
-        String desorderedArrayMessage =  "Array desordenado";
+        int size = 10;
+        int[] disorderedArray = Utils.generateRandomIntegerArray(size);
 
-        disorderedArray = Utils.generateRandomIntegerArray(size);
-        printSortedArray(sortedArray, desorderedArrayMessage);
+        Utils.printArray(disorderedArray, DESORDERED_ARRAY_MESSAGE, PRINT_ARRAYS_ENABLE);
 
-        sortedArray = sortArrayBubleSort(disorderedArray);
-        printSortedArray(sortedArray, sotedArrayMessage);
-
-        sortedArray = sortArrayInsertionSort(disorderedArray);
-        printSortedArray(sortedArray, sotedArrayMessage);
-
+        sortArrayBubleSort(disorderedArray);
+        sortArrayInsertionSort(disorderedArray);
     }
-
-    private static void printSortedArray(int[] sortedArray, String message){
-        if(PRINT_ARRAYS_ENABLE){
-            System.out.println("\n" + message);
-            Utils.printArray(sortedArray);
-        }
-    }
-
 
     //O(N²)
     public static int[] sortArrayBubleSort(int [] array){
@@ -50,6 +36,9 @@ public class SortingAlgorithms {
         }
         end = System.currentTimeMillis();
         System.out.println("Tempo: " + (end - init));
+
+        Utils.printArray(array, SORTED_ARRAY_MESSAGE, PRINT_ARRAYS_ENABLE);
+        Utils.printLine();
         return array;
     }
 
@@ -75,6 +64,8 @@ public class SortingAlgorithms {
         end = System.currentTimeMillis();
         System.out.println("Tempo: " + (end - init));
 
+        Utils.printArray(array, SORTED_ARRAY_MESSAGE, PRINT_ARRAYS_ENABLE);
+        Utils.printLine();
         return array;
     }
 }
