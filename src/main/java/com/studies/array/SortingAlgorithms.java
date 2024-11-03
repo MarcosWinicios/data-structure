@@ -16,9 +16,11 @@ public class SortingAlgorithms {
 
         int[] disorderedArray1 = Arrays.copyOf(DESORDERED_ARRAY, DESORDERED_ARRAY.length);
         int[] disorderedArray2 = Arrays.copyOf(DESORDERED_ARRAY, DESORDERED_ARRAY.length);
+        int[] disorderedArray3 = Arrays.copyOf(DESORDERED_ARRAY, DESORDERED_ARRAY.length);
 
         sortArrayBubleSort(disorderedArray1);
         sortArrayInsertionSort(disorderedArray2);
+        sortArraySelectionSort(disorderedArray3);
 
     }
 
@@ -81,4 +83,34 @@ public class SortingAlgorithms {
         printArray(array);
         return array;
     }
+
+
+    public static int[] sortArraySelectionSort(int[] array){
+        System.out.println("\nOrdenando array de " + array.length + " posições com Selection Sort");
+
+        long init = System.currentTimeMillis();
+        long end;
+
+        int minorElementPosition, aux;
+        for(int i = 0;i < array.length; i++){
+            minorElementPosition = i;
+            int j = i + 1;
+            while (j < array.length){
+                if(array[minorElementPosition] > array[j]){
+                    minorElementPosition = j;
+                }
+                j++;
+            }
+            aux = array[i];
+            array[i] = array[minorElementPosition];
+            array[minorElementPosition] = aux;
+        }
+
+        end = System.currentTimeMillis();
+        System.out.println("Tempo: " + (end - init));
+
+        printArray(array);
+        return array;
+    }
+
 }
