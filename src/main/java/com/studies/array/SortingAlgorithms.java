@@ -6,10 +6,10 @@ import java.util.Arrays;
 
 public class SortingAlgorithms {
 
-    private final static Boolean PRINT_ARRAYS_ENABLE = true;
+    private final static Boolean PRINT_ARRAYS_ENABLE = false;
     private final  static String SORTED_ARRAY_MESSAGE =  "Array ordenado";
     private final  static String DESORDERED_ARRAY_MESSAGE =  "Array desordenado";
-    private final static int[] DESORDERED_ARRAY = Utils.generateRandomIntegerArray(10);
+    private final static int[] DESORDERED_ARRAY = Utils.generateRandomIntegerArray(100000);
 
     public static void main(String[] args) {
         printArray(DESORDERED_ARRAY, DESORDERED_ARRAY_MESSAGE);
@@ -66,10 +66,10 @@ public class SortingAlgorithms {
         long end;
 
         int aux, j;
-        for (int i = 1; i < array.length; i++){
+        for (int i = 1; i < array.length; i++){//O(N)
             aux = array[i];
             j = i - 1;
-            while (j >= 0 && array[j] > aux){
+            while (j >= 0 && array[j] > aux){//O(N-1) -> O(N)
                 array[j + 1] = array[j];
                 j--;
             }
@@ -84,7 +84,7 @@ public class SortingAlgorithms {
         return array;
     }
 
-
+    //O(N²)
     public static int[] sortArraySelectionSort(int[] array){
         System.out.println("\nOrdenando array de " + array.length + " posições com Selection Sort");
 
@@ -92,18 +92,16 @@ public class SortingAlgorithms {
         long end;
 
         int minorElementPosition, aux;
-        for(int i = 0;i < array.length; i++){
+        for(int i = 0;i < array.length; i++){//O(N)
             minorElementPosition = i;
-            int j = i + 1;
-            while (j < array.length){
-                if(array[minorElementPosition] > array[j]){
+           for(int j = i+1; j < array.length; j++){//O(N-1) -> O(N)
+                if(array[j] < array[minorElementPosition]){
                     minorElementPosition = j;
                 }
-                j++;
             }
-            aux = array[i];
-            array[i] = array[minorElementPosition];
-            array[minorElementPosition] = aux;
+            aux = array[minorElementPosition];
+            array[minorElementPosition] = array[i];
+            array[i] = aux;
         }
 
         end = System.currentTimeMillis();
