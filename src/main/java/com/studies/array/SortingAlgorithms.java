@@ -9,7 +9,7 @@ public class SortingAlgorithms {
     private final static Boolean PRINT_ARRAYS_ENABLE = true;
     private final static String SORTED_ARRAY_MESSAGE = "Array ordenado";
     private final static String DESORDERED_ARRAY_MESSAGE = "Array desordenado";
-//    private final static int[] DESORDERED_ARRAY = Utils.generateRandomIntegerArray(6);
+    //    private final static int[] DESORDERED_ARRAY = Utils.generateRandomIntegerArray(6);
 //    private final static int[] DESORDERED_ARRAY = Utils.generateUniqueRandomArray(6);
     private final static int[] DESORDERED_ARRAY = {2, 10, 5, 8, 6, 25};
 
@@ -147,7 +147,7 @@ public class SortingAlgorithms {
         int right = 2 * i + 2; //filho da direita
 
         printArray(array, "");
-
+        printTreeElements(array, i, left, right, "Galho antes da ordenação");
 
         //Verifica se o filho da esquerda é maior que a raiz
         if (left < n && array[left] > array[root]) {
@@ -167,7 +167,27 @@ public class SortingAlgorithms {
             array[root] = aux;
 
             printArray(array, "");
+            printTreeElements(array, i, left, right, "Galho após a ordenação");
             applyHeap(array, n, root);
         }
+    }
+
+    private static void printTreeElements(int[] array, int root, int left, int right, String message) {
+        if (PRINT_ARRAYS_ENABLE) {
+            System.out.println("\n" + message);
+            String rootValue = (root < array.length ? array[root] : "null").toString();
+            String leftValue = (left < array.length ? array[left] : "null").toString();
+            String rightValue = (right < array.length ? array[right] : "null").toString();
+            System.out.println("    " + rootValue + "\n    /\\\n" + printLeft(leftValue) + "  " + rightValue + "\n");
+        }
+    }
+
+    private static String printLeft(String leftValue) {
+        if (leftValue.length() > 2) {
+            return leftValue;
+        } else if (leftValue.length() == 2) {
+            return "  " + leftValue;
+        }
+        return "   " + leftValue;
     }
 }

@@ -1,6 +1,5 @@
 package com.studies.utils;
 
-import com.studies.linkedList.Client;
 import com.studies.linkedList.IteratorLinkedList;
 import com.studies.linkedList.LinkedList;
 
@@ -15,17 +14,18 @@ import java.util.stream.IntStream;
 
 public class Utils {
 
-    public static void printLine(){
+    private static final Random random = new Random();
+
+    public static void printLine() {
         printLine(25);
     }
 
-    public static void printLine(int size){
-        for (int i = 0; i < size; i++){
+    public static void printLine(int size) {
+        for (int i = 0; i < size; i++) {
             System.out.print("-");
         }
+        System.out.println("\n");
     }
-
-    private static final Random random = new Random();
 
     public static <T> void printList(List<T> list) {
         System.out.println("\n" + list.toString());
@@ -115,7 +115,6 @@ public class Utils {
     }
 
 
-
     public static <T> void printSquareMatrix(List<List<T>> matrix) {
         System.out.println("\n" + matrix.toString() + "\n");
 
@@ -154,19 +153,20 @@ public class Utils {
         System.out.println(Arrays.toString(array));
     }
 
-    public static void printArray(int[] array){
+    public static void printArray(int[] array) {
         printArray(array, "Printando array");
     }
-    public static void printArray(int[] array, boolean enablePrintMessage){
+
+    public static void printArray(int[] array, boolean enablePrintMessage) {
         printArray(array, "", false);
     }
 
-    public static void printArray(int[] array, String message){
+    public static void printArray(int[] array, String message) {
         printArray(array, message, true);
     }
 
     public static void printArray(int[] array, String message, boolean enablePrintMessage) {
-        if(enablePrintMessage){
+        if (enablePrintMessage) {
             System.out.println("\n" + message);
         }
 
