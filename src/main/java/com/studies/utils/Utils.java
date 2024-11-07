@@ -24,7 +24,7 @@ public class Utils {
         for (int i = 0; i < size; i++) {
             System.out.print("-");
         }
-        System.out.println("\n");
+        System.out.println();
     }
 
     public static <T> void printList(List<T> list) {

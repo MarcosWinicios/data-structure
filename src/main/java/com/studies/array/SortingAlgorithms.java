@@ -7,11 +7,63 @@ import java.util.Arrays;
 public class SortingAlgorithms {
 
     private final static Boolean PRINT_ARRAYS_ENABLE = false;
+    private final static Boolean PRINT_NODES_ENABLE = false;
     private final static String SORTED_ARRAY_MESSAGE = "Array ordenado";
     private final static String DESORDERED_ARRAY_MESSAGE = "Array desordenado";
-    private final static int[] DESORDERED_ARRAY = Utils.generateRandomIntegerArray(100000);
+    private final static int[] DESORDERED_ARRAY = Utils.generateRandomIntegerArray(10000);
+    private static int countHeapExecutions = 0;
+    private static int countLoopsExecutions = 0;
+    private static long time = 0;
+
 //    private final static int[] DESORDERED_ARRAY = Utils.generateUniqueRandomArray(6);
-//    private final static int[] DESORDERED_ARRAY = {2, 10, 5, 8, 6, 25};
+//    private final static int[] DESORDERED_ARRAY = {2, 10, 4, 7, 1, 8, 9, 3, 6, 5};
+
+    private static void resetCounts() {
+        countLoopsExecutions = 0;
+        countHeapExecutions = 0;
+    }
+
+    private static void printMetrics() {
+        int lineSize = 0;
+        String heapMessage = "| Execuções de heaps: " + countHeapExecutions;
+        String loopMessage = "| Loops executados: " + countLoopsExecutions;
+        String timeMessage = "| Tempo: " + time + " ms";
+
+        lineSize = getMax(new int[]{
+                heapMessage.length(),
+                loopMessage.length(),
+                timeMessage.length()
+        });
+
+        Utils.printLine(lineSize);
+
+        if (countHeapExecutions > 0) {
+            printMetricMessage(heapMessage, lineSize);
+        }
+        printMetricMessage(loopMessage, lineSize);
+        printMetricMessage(timeMessage, lineSize);
+        Utils.printLine(lineSize);
+    }
+
+    public static void printMetricMessage(String message, int lineSize) {
+        if (message.length() != lineSize) {
+            System.out.print(message + getSpaces(lineSize - message.length()) + "|\n");
+        } else {
+            System.out.print(message + "|\n");
+        }
+    }
+
+    private static int getMax(int[] array) {
+        return Arrays.stream(array).max().getAsInt();
+    }
+
+    private static String getSpaces(int quantities) {
+        String spaces = " ";
+        for (int i = 1; i < quantities; i++) {
+            spaces += " ";
+        }
+        return spaces;
+    }
 
     public static void main(String[] args) {
         printArray(DESORDERED_ARRAY, DESORDERED_ARRAY_MESSAGE);
@@ -20,7 +72,7 @@ public class SortingAlgorithms {
         int[] disorderedArray2 = Arrays.copyOf(DESORDERED_ARRAY, DESORDERED_ARRAY.length);
         int[] disorderedArray3 = Arrays.copyOf(DESORDERED_ARRAY, DESORDERED_ARRAY.length);
         int[] disorderedArray5 = Arrays.copyOf(DESORDERED_ARRAY, DESORDERED_ARRAY.length);
-//
+
         sortArrayBubleSort(disorderedArray1);
         sortArrayInsertionSort(disorderedArray2);
         sortArraySelectionSort(disorderedArray3);
@@ -41,13 +93,16 @@ public class SortingAlgorithms {
 
     //O(N²)
     public static int[] sortArrayBubleSort(int[] array) {
+        resetCounts();
         System.out.println("\nOrdenando array de " + array.length + " posições com Bluble Sort");
         long init = System.currentTimeMillis();
         long end;
 
         int aux = 0;
         for (int i = 0; i < array.length; i++) {//(O(N)
+            countLoopsExecutions++;
             for (int j = i + 1; j < array.length; j++) {//O(N-1) -> O(N)
+                countLoopsExecutions++;
                 if (array[i] > array[j]) {
                     aux = array[j];
                     array[j] = array[i];
@@ -56,14 +111,16 @@ public class SortingAlgorithms {
             }
         }
         end = System.currentTimeMillis();
-        System.out.println("Tempo: " + (end - init));
-
+        time = (end - init);
         printArray(array);
+
+        printMetrics();
         return array;
     }
 
     //O(N²) -> Mais rápido que o buble sort
     public static int[] sortArrayInsertionSort(int[] array) {
+        resetCounts();
         System.out.println("\nOrdenando array de " + array.length + " posições com Insertion Sort");
 
         long init = System.currentTimeMillis();
@@ -71,9 +128,11 @@ public class SortingAlgorithms {
 
         int aux, j;
         for (int i = 1; i < array.length; i++) {//O(N)
+            countLoopsExecutions++;
             aux = array[i];
             j = i - 1;
             while (j >= 0 && array[j] > aux) {//O(N-1) -> O(N)
+                countLoopsExecutions++;
                 array[j + 1] = array[j];
                 j--;
             }
@@ -82,14 +141,16 @@ public class SortingAlgorithms {
         }
 
         end = System.currentTimeMillis();
-        System.out.println("Tempo: " + (end - init));
-
+        time = (end - init);
         printArray(array);
+
+        printMetrics();
         return array;
     }
 
     //O(N²)
     public static int[] sortArraySelectionSort(int[] array) {
+        resetCounts();
         System.out.println("\nOrdenando array de " + array.length + " posições com Selection Sort");
 
         long init = System.currentTimeMillis();
@@ -97,8 +158,10 @@ public class SortingAlgorithms {
 
         int minorElementPosition, aux;
         for (int i = 0; i < array.length; i++) {//O(N)
+            countLoopsExecutions++;
             minorElementPosition = i;
             for (int j = i + 1; j < array.length; j++) {//O(N-1) -> O(N)
+                countLoopsExecutions++;
                 if (array[j] < array[minorElementPosition]) {
                     minorElementPosition = j;
                 }
@@ -109,14 +172,17 @@ public class SortingAlgorithms {
         }
 
         end = System.currentTimeMillis();
-        System.out.println("Tempo: " + (end - init));
+        time = (end - init);
 
         printArray(array);
+        printMetrics();
         return array;
     }
 
     //O(N log N)
     public static int[] sortArrayHeapSort(int[] array) {
+        resetCounts();
+
         System.out.println("\nOrdenando array de " + array.length + " posições com Heap Sort");
         long init = System.currentTimeMillis();
         long end;
@@ -131,46 +197,50 @@ public class SortingAlgorithms {
          *
          * Esse for descobre qual o maior dentre os três, e o torna a raiz realizando a troca de posições.
          */
-        int n = array.length;
-        for (int i = n / 2 - 1; i >= 0; i--) { //Percorre apenas até a metade do array para montar um heap
-            applyHeap(array, n, i);
+        int size = array.length;
+        for (int i = size / 2 - 1; i >= 0; i--) {
+            countLoopsExecutions++;
+            applyHeap(array, size, i);
         }
 
-        printArray(array, "Array Quase ordenado");
+//        printArray(array, "Array Quase ordenado");
 
         /**
          * Agora esse for irá realizar a troca de posições entre os elementos levando os maiores para direita e os menores para esquerda
          * Também aplica o heap novamente para garantir a ordenação
          */
-        for (int j = n - 1; j > 0; j--) {
+        for (int lastIndex = size - 1; lastIndex > 0; lastIndex--) {
+            countLoopsExecutions++;
             int aux = array[0];
-            array[0] = array[j];
-            array[j] = aux;
+            array[0] = array[lastIndex];
+            array[lastIndex] = aux;
 
-            applyHeap(array, j, 0);
+            applyHeap(array, lastIndex, 0);
         }
 
         end = System.currentTimeMillis();
-        System.out.println("Tempo: " + (end - init));
-
+        time = (end - init);
         printArray(array);
+
+        printMetrics();
         return array;
     }
 
-    private static void applyHeap(int[] array, int n, int i) {
+
+    private static void applyHeap(int[] array, int lastIndex, int i) {
+        countHeapExecutions++;
         int root = i; //raiz
         int left = 2 * i + 1; //filho da esquerda
         int right = 2 * i + 2; //filho da direita
 
-        printArray(array, "");
         printTreeElements(array, i, left, right, "Galho antes da ordenação");
 
         //Verifica se o filho da esquerda é maior que a raiz
-        if (left < n && array[left] > array[root]) {
+        if (left < lastIndex && array[left] > array[root]) {
             root = left;
         }
         //Verifica se o filho da direita é maior que a raiz
-        if (right < n && array[right] > array[root]) {
+        if (right < lastIndex && array[right] > array[root]) {
             root = right;
         }
 
@@ -182,14 +252,14 @@ public class SortingAlgorithms {
             array[i] = array[root];
             array[root] = aux;
 
-            printArray(array, "");
             printTreeElements(array, i, left, right, "Galho após a ordenação");
-            applyHeap(array, n, root);
+            applyHeap(array, lastIndex, root);
         }
     }
 
     private static void printTreeElements(int[] array, int root, int left, int right, String message) {
-        if (PRINT_ARRAYS_ENABLE) {
+        if (PRINT_NODES_ENABLE) {
+            printArray(array, "");
             System.out.println("\n" + message);
             String rootValue = (root < array.length ? array[root] : "null").toString();
             String leftValue = (left < array.length ? array[left] : "null").toString();
