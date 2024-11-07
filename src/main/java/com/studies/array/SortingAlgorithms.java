@@ -6,12 +6,12 @@ import java.util.Arrays;
 
 public class SortingAlgorithms {
 
-    private final static Boolean PRINT_ARRAYS_ENABLE = true;
+    private final static Boolean PRINT_ARRAYS_ENABLE = false;
     private final static String SORTED_ARRAY_MESSAGE = "Array ordenado";
     private final static String DESORDERED_ARRAY_MESSAGE = "Array desordenado";
-    //    private final static int[] DESORDERED_ARRAY = Utils.generateRandomIntegerArray(6);
+    private final static int[] DESORDERED_ARRAY = Utils.generateRandomIntegerArray(100000);
 //    private final static int[] DESORDERED_ARRAY = Utils.generateUniqueRandomArray(6);
-    private final static int[] DESORDERED_ARRAY = {2, 10, 5, 8, 6, 25};
+//    private final static int[] DESORDERED_ARRAY = {2, 10, 5, 8, 6, 25};
 
     public static void main(String[] args) {
         printArray(DESORDERED_ARRAY, DESORDERED_ARRAY_MESSAGE);
@@ -20,7 +20,7 @@ public class SortingAlgorithms {
         int[] disorderedArray2 = Arrays.copyOf(DESORDERED_ARRAY, DESORDERED_ARRAY.length);
         int[] disorderedArray3 = Arrays.copyOf(DESORDERED_ARRAY, DESORDERED_ARRAY.length);
         int[] disorderedArray5 = Arrays.copyOf(DESORDERED_ARRAY, DESORDERED_ARRAY.length);
-
+//
         sortArrayBubleSort(disorderedArray1);
         sortArrayInsertionSort(disorderedArray2);
         sortArraySelectionSort(disorderedArray3);
@@ -35,8 +35,8 @@ public class SortingAlgorithms {
     private static void printArray(int[] array, String message) {
         if (PRINT_ARRAYS_ENABLE) {
             Utils.printArray(array, message);
+            Utils.printLine();
         }
-        Utils.printLine();
     }
 
     //O(N²)
@@ -115,17 +115,33 @@ public class SortingAlgorithms {
         return array;
     }
 
+    //O(N log N)
     public static int[] sortArrayHeapSort(int[] array) {
         System.out.println("\nOrdenando array de " + array.length + " posições com Heap Sort");
         long init = System.currentTimeMillis();
         long end;
 
+        /**
+         * Percorre o array da metade ao inicio aplicando o heap. Utilizando o conceito de árvore.
+         * Para cada item o metodo heap elege uma raiz, o filho da direita e um da esquerda.
+         * Sendo que:
+         * - raiz = array[i]
+         * - direita = array[2 * i + 1]
+         * - esquerda = array[2 * i + 2]
+         *
+         * Esse for descobre qual o maior dentre os três, e o torna a raiz realizando a troca de posições.
+         */
         int n = array.length;
         for (int i = n / 2 - 1; i >= 0; i--) { //Percorre apenas até a metade do array para montar um heap
             applyHeap(array, n, i);
         }
 
         printArray(array, "Array Quase ordenado");
+
+        /**
+         * Agora esse for irá realizar a troca de posições entre os elementos levando os maiores para direita e os menores para esquerda
+         * Também aplica o heap novamente para garantir a ordenação
+         */
         for (int j = n - 1; j > 0; j--) {
             int aux = array[0];
             array[0] = array[j];
@@ -158,7 +174,7 @@ public class SortingAlgorithms {
             root = right;
         }
 
-        //Definiu como raiz o index do mario elemento dentre os trẽs
+        //Definiu como raiz o index do maior elemento dentre os três
 
         //Troca o filho e a raiz de posições se o filho for maior
         if (root != i) {
