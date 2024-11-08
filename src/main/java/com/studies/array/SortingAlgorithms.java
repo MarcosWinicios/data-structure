@@ -189,13 +189,13 @@ public class SortingAlgorithms {
 
         /**
          * Percorre o array da metade ao inicio aplicando o heap. Utilizando o conceito de árvore.
-         * Para cada item o metodo heap elege uma raiz, o filho da direita e um da esquerda.
+         * Para cada item o metodo heap elege uma raiz e os filhos da direita e esquerda.
          * Sendo que:
          * - raiz = array[i]
          * - direita = array[2 * i + 1]
          * - esquerda = array[2 * i + 2]
          *
-         * Esse for descobre qual o maior dentre os três, e o torna a raiz realizando a troca de posições.
+         * Ao finalizar este for, o maior número estará no topo da árvore, sendo também no primeiro index do array
          */
         int size = array.length;
         for (int i = size / 2 - 1; i >= 0; i--) {
@@ -206,8 +206,8 @@ public class SortingAlgorithms {
 //        printArray(array, "Array Quase ordenado");
 
         /**
-         * Agora esse for irá realizar a troca de posições entre os elementos levando os maiores para direita e os menores para esquerda
-         * Também aplica o heap novamente para garantir a ordenação
+         * Agora este for irá levar o maior valor para a última posição e reaplicar o heap sempre diminuindo um index do array.
+         * Sempre, após aplicar o heap, o maior valor estará no inicio do array, e nesse for, este valor sempre será jogado para o fim
          */
         for (int lastIndex = size - 1; lastIndex > 0; lastIndex--) {
             countLoopsExecutions++;
