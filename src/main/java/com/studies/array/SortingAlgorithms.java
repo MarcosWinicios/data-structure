@@ -72,15 +72,18 @@ public class SortingAlgorithms {
         int[] disorderedArray2 = Arrays.copyOf(DESORDERED_ARRAY, DESORDERED_ARRAY.length);
         int[] disorderedArray3 = Arrays.copyOf(DESORDERED_ARRAY, DESORDERED_ARRAY.length);
         int[] disorderedArray5 = Arrays.copyOf(DESORDERED_ARRAY, DESORDERED_ARRAY.length);
+        int[] disorderedArray6 = Arrays.copyOf(DESORDERED_ARRAY, DESORDERED_ARRAY.length);
 
-        sortArrayBubleSort(disorderedArray1);
-        sortArrayInsertionSort(disorderedArray2);
-        sortArraySelectionSort(disorderedArray3);
-        sortArrayHeapSort(disorderedArray5);
+//        sortArrayBubleSort(disorderedArray1);
+////        sortArrayInsertionSort(disorderedArray2);
+////        sortArraySelectionSort(disorderedArray3);
+////        sortArrayHeapSort(disorderedArray5);
+        sortArrayQuickSort(disorderedArray6);
 
     }
 
     private static void printArray(int[] array) {
+
         printArray(array, SORTED_ARRAY_MESSAGE);
     }
 
@@ -257,9 +260,50 @@ public class SortingAlgorithms {
         }
     }
 
+    public static void  sortArrayQuickSort(int[] array){
+        quickSort(array, 0, array.length);
+    }
+
+    private static int[] quickSort(int array[], int left, int right){
+        if(left < right){
+            int pivo  = partition(array, left, right);
+            sortArrayQuickSort(array, left, pivo);
+            sortArrayQuickSort(array, pivo + 1, pivo);
+        }
+
+        return array;
+    }
+
+    private static int partition(int[] array, int left, int right) {
+        int mid = (int) (left + right) / 2;
+        int pivo = array[mid];
+        int i =  left - 1;
+        int j = right + 1;
+
+        while (true){
+            do {
+                i++;
+            }while (array[i] < pivo);
+
+
+            do{
+                j --;
+            }while (array[j] > pivo);
+
+            if(i >= j){
+                return j;
+            }
+
+            int aux =  array[i];
+            array[i] = array[j];
+            array[j] = aux;
+        }
+    }
+
+
     private static void printTreeElements(int[] array, int root, int left, int right, String message) {
         if (PRINT_NODES_ENABLE) {
-            printArray(array, "");
+            Utils.printArray(array, "");
             System.out.println("\n" + message);
             String rootValue = (root < array.length ? array[root] : "null").toString();
             String leftValue = (left < array.length ? array[left] : "null").toString();
