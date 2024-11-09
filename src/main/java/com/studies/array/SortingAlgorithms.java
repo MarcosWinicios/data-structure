@@ -267,8 +267,8 @@ public class SortingAlgorithms {
     private static int[] quickSort(int array[], int left, int right){
         if(left < right){
             int pivo  = partition(array, left, right);
-            sortArrayQuickSort(array, left, pivo);
-            sortArrayQuickSort(array, pivo + 1, pivo);
+            quickSort(array, left, pivo);
+            quickSort(array, pivo + 1, pivo);
         }
 
         return array;
