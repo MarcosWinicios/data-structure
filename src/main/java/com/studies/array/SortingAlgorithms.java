@@ -18,52 +18,6 @@ public class SortingAlgorithms {
 //    private final static int[] DESORDERED_ARRAY = Utils.generateUniqueRandomArray(6);
 //    private final static int[] DESORDERED_ARRAY = {2, 10, 4, 7, 1, 8, 9, 3, 6, 5};
 
-    private static void resetCounts() {
-        countLoopsExecutions = 0;
-        countRecursiveExecutions = 0;
-    }
-
-    private static void printMetrics() {
-        int lineSize = 0;
-        String heapMessage = "| Execuções de heaps: " + countRecursiveExecutions;
-        String loopMessage = "| Loops executados: " + countLoopsExecutions;
-        String timeMessage = "| Tempo: " + time + " ms";
-
-        lineSize = getMax(new int[]{
-                heapMessage.length(),
-                loopMessage.length(),
-                timeMessage.length()
-        });
-
-        Utils.printLine(lineSize);
-
-        if (countRecursiveExecutions > 0) {
-            printMetricMessage(heapMessage, lineSize);
-        }
-        printMetricMessage(loopMessage, lineSize);
-        printMetricMessage(timeMessage, lineSize);
-        Utils.printLine(lineSize);
-    }
-
-    public static void printMetricMessage(String message, int lineSize) {
-        if (message.length() != lineSize) {
-            System.out.print(message + getSpaces(lineSize - message.length()) + "|\n");
-        } else {
-            System.out.print(message + "|\n");
-        }
-    }
-
-    private static int getMax(int[] array) {
-        return Arrays.stream(array).max().getAsInt();
-    }
-
-    private static String getSpaces(int quantities) {
-        String spaces = " ";
-        for (int i = 1; i < quantities; i++) {
-            spaces += " ";
-        }
-        return spaces;
-    }
 
     public static void main(String[] args) {
         printArray(DESORDERED_ARRAY, DESORDERED_ARRAY_MESSAGE);
@@ -80,18 +34,6 @@ public class SortingAlgorithms {
 ////        sortArrayHeapSort(disorderedArray5);
         sortArrayQuickSort(disorderedArray6);
 
-    }
-
-    private static void printArray(int[] array) {
-
-        printArray(array, SORTED_ARRAY_MESSAGE);
-    }
-
-    private static void printArray(int[] array, String message) {
-        if (PRINT_ARRAYS_ENABLE) {
-            Utils.printArray(array, message);
-            Utils.printLine();
-        }
     }
 
     //O(N²)
@@ -331,5 +273,67 @@ public class SortingAlgorithms {
             return "  " + leftValue;
         }
         return "   " + leftValue;
+    }
+
+// MÉTDOOS AUXILIARES
+
+    private static void resetCounts() {
+        countLoopsExecutions = 0;
+        countRecursiveExecutions = 0;
+    }
+
+    private static void printMetrics() {
+        int lineSize = 0;
+        String heapMessage = "| Execuções de heaps: " + countRecursiveExecutions;
+        String loopMessage = "| Loops executados: " + countLoopsExecutions;
+        String timeMessage = "| Tempo: " + time + " ms";
+
+        lineSize = getMax(new int[]{
+                heapMessage.length(),
+                loopMessage.length(),
+                timeMessage.length()
+        });
+
+        Utils.printLine(lineSize);
+
+        if (countRecursiveExecutions > 0) {
+            printMetricMessage(heapMessage, lineSize);
+        }
+        printMetricMessage(loopMessage, lineSize);
+        printMetricMessage(timeMessage, lineSize);
+        Utils.printLine(lineSize);
+    }
+
+    public static void printMetricMessage(String message, int lineSize) {
+        if (message.length() != lineSize) {
+            System.out.print(message + getSpaces(lineSize - message.length()) + "|\n");
+        } else {
+            System.out.print(message + "|\n");
+        }
+    }
+
+    private static int getMax(int[] array) {
+        return Arrays.stream(array).max().getAsInt();
+    }
+
+    private static String getSpaces(int quantities) {
+        String spaces = " ";
+        for (int i = 1; i < quantities; i++) {
+            spaces += " ";
+        }
+        return spaces;
+    }
+
+
+    private static void printArray(int[] array) {
+
+        printArray(array, SORTED_ARRAY_MESSAGE);
+    }
+
+    private static void printArray(int[] array, String message) {
+        if (PRINT_ARRAYS_ENABLE) {
+            Utils.printArray(array, message);
+            Utils.printLine();
+        }
     }
 }
