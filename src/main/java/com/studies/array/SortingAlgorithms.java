@@ -6,12 +6,12 @@ import java.util.Arrays;
 
 public class SortingAlgorithms {
 
-    private final static Boolean PRINT_ARRAYS_ENABLE = false;
+    private final static Boolean PRINT_ARRAYS_ENABLE = true;
     private final static Boolean PRINT_NODES_ENABLE = false;
     private final static String SORTED_ARRAY_MESSAGE = "Array ordenado";
     private final static String DESORDERED_ARRAY_MESSAGE = "Array desordenado";
-    private final static int[] DESORDERED_ARRAY = Utils.generateRandomIntegerArray(10000);
-    private static int countHeapExecutions = 0;
+    private final static int[] DESORDERED_ARRAY = Utils.generateRandomIntegerArray(10);
+    private static int countRecursiveExecutions = 0;
     private static int countLoopsExecutions = 0;
     private static long time = 0;
 
@@ -20,12 +20,12 @@ public class SortingAlgorithms {
 
     private static void resetCounts() {
         countLoopsExecutions = 0;
-        countHeapExecutions = 0;
+        countRecursiveExecutions = 0;
     }
 
     private static void printMetrics() {
         int lineSize = 0;
-        String heapMessage = "| Execuções de heaps: " + countHeapExecutions;
+        String heapMessage = "| Execuções de heaps: " + countRecursiveExecutions;
         String loopMessage = "| Loops executados: " + countLoopsExecutions;
         String timeMessage = "| Tempo: " + time + " ms";
 
@@ -37,7 +37,7 @@ public class SortingAlgorithms {
 
         Utils.printLine(lineSize);
 
-        if (countHeapExecutions > 0) {
+        if (countRecursiveExecutions > 0) {
             printMetricMessage(heapMessage, lineSize);
         }
         printMetricMessage(loopMessage, lineSize);
@@ -231,7 +231,7 @@ public class SortingAlgorithms {
 
 
     private static void applyHeap(int[] array, int lastIndex, int i) {
-        countHeapExecutions++;
+        countRecursiveExecutions++;
         int root = i; //raiz
         int left = 2 * i + 1; //filho da esquerda
         int right = 2 * i + 2; //filho da direita
@@ -261,34 +261,46 @@ public class SortingAlgorithms {
     }
 
     public static void  sortArrayQuickSort(int[] array){
-        quickSort(array, 0, array.length);
+        resetCounts();
+        System.out.println("\nOrdenando array de " + array.length + " posições com Quick Sort");
+
+        long init = System.currentTimeMillis();
+        long end;
+        quickSort(array, 0, array.length - 1);
+        printArray(array);
+
+        end = System.currentTimeMillis();
+        time = (end - init);
+        printMetrics();
     }
 
-    private static int[] quickSort(int array[], int left, int right){
+    private static void quickSort(int[] array, int left, int right){
+        countRecursiveExecutions++;
         if(left < right){
-            int pivo  = partition(array, left, right);
-            quickSort(array, left, pivo);
-            quickSort(array, pivo + 1, pivo);
+            int pivot  = partition(array, left, right);
+            quickSort(array, left, pivot);
+            quickSort(array, pivot + 1, right);
         }
-
-        return array;
     }
 
     private static int partition(int[] array, int left, int right) {
         int mid = (int) (left + right) / 2;
-        int pivo = array[mid];
+        int pivot = array[mid];
         int i =  left - 1;
         int j = right + 1;
 
         while (true){
+            countLoopsExecutions++;
             do {
+                countLoopsExecutions++;
                 i++;
-            }while (array[i] < pivo);
+            }while (array[i] < pivot);
 
 
             do{
+                countLoopsExecutions++;
                 j --;
-            }while (array[j] > pivo);
+            }while (array[j] > pivot);
 
             if(i >= j){
                 return j;
