@@ -6,11 +6,11 @@ import java.util.Arrays;
 
 public class SortingAlgorithms {
 
-    private final static Boolean PRINT_ARRAYS_ENABLE = true;
+    private final static Boolean PRINT_ARRAYS_ENABLE = false;
     private final static Boolean PRINT_NODES_ENABLE = false;
     private final static String SORTED_ARRAY_MESSAGE = "Array ordenado";
     private final static String DESORDERED_ARRAY_MESSAGE = "Array desordenado";
-    private final static int[] DESORDERED_ARRAY = Utils.generateRandomIntegerArray(10);
+    private final static int[] DESORDERED_ARRAY = Utils.generateRandomIntegerArray(10000);
     private static int countRecursiveExecutions = 0;
     private static int countLoopsExecutions = 0;
     private static long time = 0;
@@ -28,10 +28,10 @@ public class SortingAlgorithms {
         int[] disorderedArray5 = Arrays.copyOf(DESORDERED_ARRAY, DESORDERED_ARRAY.length);
         int[] disorderedArray6 = Arrays.copyOf(DESORDERED_ARRAY, DESORDERED_ARRAY.length);
 
-//        sortArrayBubleSort(disorderedArray1);
-////        sortArrayInsertionSort(disorderedArray2);
-////        sortArraySelectionSort(disorderedArray3);
-////        sortArrayHeapSort(disorderedArray5);
+        sortArrayBubleSort(disorderedArray1);
+        sortArrayInsertionSort(disorderedArray2);
+        sortArraySelectionSort(disorderedArray3);
+        sortArrayHeapSort(disorderedArray5);
         sortArrayQuickSort(disorderedArray6);
 
     }
@@ -284,7 +284,7 @@ public class SortingAlgorithms {
 
     private static void printMetrics() {
         int lineSize = 0;
-        String heapMessage = "| Execuções de heaps: " + countRecursiveExecutions;
+        String heapMessage = "| Execuções recursivas: " + countRecursiveExecutions;
         String loopMessage = "| Loops executados: " + countLoopsExecutions;
         String timeMessage = "| Tempo: " + time + " ms";
 
