@@ -13,3 +13,4 @@ Projeto dedicado à prática e a estudos referentes a estrutura de dados utiliza
 - Insertion Sort
 - Selection Sort
 - Heap Sort
+- Quick Sort
