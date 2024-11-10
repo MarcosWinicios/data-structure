@@ -284,21 +284,19 @@ public class SortingAlgorithms {
 
     private static void printMetrics() {
         int lineSize = 0;
-        String heapMessage = "| Execuções recursivas: " + countRecursiveExecutions;
+        String recursiveMessage = "| Execuções recursivas: " + countRecursiveExecutions;
         String loopMessage = "| Loops executados: " + countLoopsExecutions;
         String timeMessage = "| Tempo: " + time + " ms";
 
-        lineSize = getMax(new int[]{
-                heapMessage.length(),
+        lineSize = Arrays.stream(new int[]{
+                recursiveMessage.length(),
                 loopMessage.length(),
                 timeMessage.length()
-        });
+        }).max().getAsInt();
 
         Utils.printLine(lineSize);
 
-        if (countRecursiveExecutions > 0) {
-            printMetricMessage(heapMessage, lineSize);
-        }
+        printMetricMessage(recursiveMessage, lineSize);
         printMetricMessage(loopMessage, lineSize);
         printMetricMessage(timeMessage, lineSize);
         Utils.printLine(lineSize);
@@ -312,10 +310,6 @@ public class SortingAlgorithms {
         }
     }
 
-    private static int getMax(int[] array) {
-        return Arrays.stream(array).max().getAsInt();
-    }
-
     private static String getSpaces(int quantities) {
         String spaces = " ";
         for (int i = 1; i < quantities; i++) {
@@ -324,9 +318,7 @@ public class SortingAlgorithms {
         return spaces;
     }
 
-
     private static void printArray(int[] array) {
-
         printArray(array, SORTED_ARRAY_MESSAGE);
     }
 
