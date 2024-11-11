@@ -2,11 +2,9 @@ package com.studies.compare.sorting.algorithms;
 
 import com.studies.compare.sorting.Result;
 
-public class BubleSort implements SortingAlgorithmsInterface{
+public class BubbleSort implements SortingAlgorithmsInterface{
 
     private final String name =  "BUBLE SORT";
-    private final String message = "Ordenação utilizando o algoritmo " + name;
-
 
     //O(N²)
     @Override
@@ -24,11 +22,6 @@ public class BubleSort implements SortingAlgorithmsInterface{
             }
         }
         return new Result(array, exchangesCounter);
-    }
-
-    @Override
-    public String getMessage() {
-        return this.message;
     }
 
     @Override
