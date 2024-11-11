@@ -2,7 +2,7 @@ package com.studies.compare.sorting.algorithms;
 
 import com.studies.compare.sorting.Result;
 
-public class BubleSort implements SortingAlgorithmsInterface {
+public class BubleSort implements SortingAlgorithmsInterface{
 
     private final String name =  "Buble Sort";
     private final String message = "Ordenação utilizando o algoritmo buble sort";
