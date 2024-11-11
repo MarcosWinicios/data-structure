@@ -6,17 +6,17 @@ import java.util.Arrays;
 
 public class SortingAlgorithms {
 
-    private final static Boolean PRINT_ARRAYS_ENABLE = false;
+    private final static Boolean PRINT_ARRAYS_ENABLE = true;
     private final static Boolean PRINT_NODES_ENABLE = false;
     private final static String SORTED_ARRAY_MESSAGE = "Array ordenado";
     private final static String DESORDERED_ARRAY_MESSAGE = "Array desordenado";
-    private final static int[] DESORDERED_ARRAY = Utils.generateRandomIntegerArray(10000);
+//    private final static int[] DESORDERED_ARRAY = Utils.generateRandomIntegerArray(10);
     private static int countRecursiveExecutions = 0;
     private static int countLoopsExecutions = 0;
     private static long time = 0;
 
 //    private final static int[] DESORDERED_ARRAY = Utils.generateUniqueRandomArray(6);
-//    private final static int[] DESORDERED_ARRAY = {2, 10, 4, 7, 1, 8, 9, 3, 6, 5};
+    private final static int[] DESORDERED_ARRAY = {2, 10, 4, 7, 1, 8, 9, 3, 6, 5};
 
 
     public static void main(String[] args) {
@@ -28,10 +28,10 @@ public class SortingAlgorithms {
         int[] disorderedArray5 = Arrays.copyOf(DESORDERED_ARRAY, DESORDERED_ARRAY.length);
         int[] disorderedArray6 = Arrays.copyOf(DESORDERED_ARRAY, DESORDERED_ARRAY.length);
 
-        sortArrayBubleSort(disorderedArray1);
-        sortArrayInsertionSort(disorderedArray2);
-        sortArraySelectionSort(disorderedArray3);
-        sortArrayHeapSort(disorderedArray5);
+//        sortArrayBubleSort(disorderedArray1);
+//        sortArrayInsertionSort(disorderedArray2);
+//        sortArraySelectionSort(disorderedArray3);
+//        sortArrayHeapSort(disorderedArray5);
         sortArrayQuickSort(disorderedArray6);
 
     }
@@ -217,6 +217,9 @@ public class SortingAlgorithms {
     }
 
     private static void quickSort(int[] array, int left, int right){
+
+        printArray(Arrays.copyOfRange(array, left, right), "Array no Quick Sort");
+
         countRecursiveExecutions++;
         if(left < right){
             int pivot  = partition(array, left, right);
