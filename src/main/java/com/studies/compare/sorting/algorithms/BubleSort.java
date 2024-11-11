@@ -4,9 +4,11 @@ import com.studies.compare.sorting.Result;
 
 public class BubleSort implements SortingAlgorithmsInterface{
 
-    private final String name =  "Buble Sort";
-    private final String message = "Ordenação utilizando o algoritmo buble sort";
+    private final String name =  "BUBLE SORT";
+    private final String message = "Ordenação utilizando o algoritmo " + name;
 
+
+    //O(N²)
     @Override
     public Result sort(int[] array) {
         int aux = 0;

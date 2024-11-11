@@ -1,6 +1,7 @@
 package com.studies.compare.sorting;
 
 import com.studies.compare.sorting.algorithms.BubleSort;
+import com.studies.compare.sorting.algorithms.InsertionSort;
 import com.studies.compare.sorting.algorithms.SortingAlgorithmsInterface;
 import com.studies.utils.Utils;
 
@@ -10,8 +11,10 @@ public class Main {
 
     public static void main(String[] args) {
         SortingAlgorithmsInterface bubleSort = new BubleSort();
+        SortingAlgorithmsInterface insertionSort =  new InsertionSort();
 
         execute(bubleSort, DESORDERED_ARRAY.clone());
+        execute(insertionSort, DESORDERED_ARRAY.clone());
     }
 
     public static void execute(SortingAlgorithmsInterface sortInterface, int[] array){
