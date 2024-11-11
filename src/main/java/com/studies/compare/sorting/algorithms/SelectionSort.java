@@ -6,6 +6,7 @@ public class SelectionSort implements SortingAlgorithmsInterface{
 
     private final String name = "SELECTION SORT";
 
+    //O(N²)
     @Override
     public Result sort(int[] array) {
         int minorElementPosition, aux;

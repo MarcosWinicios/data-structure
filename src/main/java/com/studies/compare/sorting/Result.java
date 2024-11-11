@@ -25,6 +25,6 @@ public class Result {
         return "Result{" +
                 "array=" + Arrays.toString(array) +
                 ", exchanges=" + exchanges +
-                '}' + "\n";
+                '}';
     }
 }

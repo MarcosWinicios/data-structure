@@ -5,8 +5,8 @@ import com.studies.compare.sorting.Result;
 public class InsertionSort implements SortingAlgorithmsInterface{
 
     private final String name =  "INSERTION SORT";
-    private final String message = "Ordenação utilizando o algoritmo " + name;
 
+    //O(N²) -> Mais rápido que o buble sort
     @Override
     public Result sort(int[] array) {
         int aux, j;
@@ -21,11 +21,6 @@ public class InsertionSort implements SortingAlgorithmsInterface{
         }
 
         return new Result(array, 0);
-    }
-
-    @Override
-    public String getMessage() {
-        return this.message;
     }
 
     @Override

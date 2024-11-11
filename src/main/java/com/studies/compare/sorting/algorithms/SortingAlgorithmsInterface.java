@@ -4,9 +4,12 @@ import com.studies.compare.sorting.Result;
 
 public interface SortingAlgorithmsInterface {
 
+
     public Result sort(int[] array);
 
-    public String getMessage();
+    public default String getMessage(){
+        return "Ordenação utilizando o algoritmo " + getName();
+    }
 
     public String getName();
 }
