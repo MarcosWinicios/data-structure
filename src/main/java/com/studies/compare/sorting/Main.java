@@ -3,6 +3,7 @@ package com.studies.compare.sorting;
 import com.studies.compare.sorting.algorithms.BubbleSort;
 import com.studies.compare.sorting.algorithms.HeapSort;
 import com.studies.compare.sorting.algorithms.InsertionSort;
+import com.studies.compare.sorting.algorithms.QuickSort;
 import com.studies.compare.sorting.algorithms.SelectionSort;
 import com.studies.compare.sorting.algorithms.SortingAlgorithmsInterface;
 import com.studies.utils.Utils;
@@ -16,11 +17,13 @@ public class Main {
         SortingAlgorithmsInterface insertionSort =  new InsertionSort();
         SortingAlgorithmsInterface selectionSort = new SelectionSort();
         SortingAlgorithmsInterface heapSort = new HeapSort();
+        SortingAlgorithmsInterface quickSort = new QuickSort();
 
         execute(bubbleSort, DESORDERED_ARRAY.clone());
         execute(insertionSort, DESORDERED_ARRAY.clone());
         execute(selectionSort, DESORDERED_ARRAY.clone());
         execute(heapSort, DESORDERED_ARRAY.clone());
+        execute(quickSort, DESORDERED_ARRAY.clone());
     }
 
     public static void execute(SortingAlgorithmsInterface sortInterface, int[] array){
