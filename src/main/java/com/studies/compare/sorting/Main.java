@@ -10,7 +10,7 @@ import com.studies.utils.Utils;
 
 public class Main {
 
-    private final static int[] DESORDERED_ARRAY = Utils.generateRandomIntegerArray(10);
+    private final static int[] DESORDERED_ARRAY = Utils.generateRandomIntegerArray(10000);
 
     public static void main(String[] args) {
         SortingAlgorithmsInterface bubbleSort = new BubbleSort();
@@ -36,6 +36,7 @@ public class Main {
         Result result = sortInterface.sort(array);
 
         end = System.currentTimeMillis();
+        result.setTime(end - init);
 
         System.out.println(result.toString() + "\n");
 
