@@ -5,10 +5,11 @@ import com.studies.compare.sorting.Result;
 public class HeapSort implements SortingAlgorithmsInterface{
 
     private final String name =  "HEAP SORT";
+    private int exchangesCounter = 0;
 
     @Override
     public Result sort(int[] array) {
-        int exchangeCounter = 0;
+
         /**
          * Percorre o array da metade ao inicio aplicando o heap. Utilizando o conceito de árvore.
          * Para cada item o metodo heap elege uma raiz e os filhos da direita e esquerda.
@@ -32,21 +33,19 @@ public class HeapSort implements SortingAlgorithmsInterface{
             int aux = array[0];
             array[0] = array[lastIndex];
             array[lastIndex] = aux;
-            exchangeCounter++;
+            exchangesCounter++;
 
-            exchangeCounter += applyHeap(array, lastIndex, 0);
+            applyHeap(array, lastIndex, 0);
         }
 
-        return new Result(array, exchangeCounter);
+        return new Result(array, exchangesCounter);
     }
 
 
-    private int applyHeap(int[] array, int lastIndex, int i) {
+    private void applyHeap(int[] array, int lastIndex, int i) {
         int root = i; //raiz
         int left = 2 * i + 1; //filho da esquerda
         int right = 2 * i + 2; //filho da direita
-
-        int exchangesCounter = 0;
 
         //Verifica se o filho da esquerda é maior que a raiz
         if (left < lastIndex && array[left] > array[root]) {
@@ -66,9 +65,8 @@ public class HeapSort implements SortingAlgorithmsInterface{
             array[root] = aux;
 
             exchangesCounter++;
-            exchangesCounter += applyHeap(array, lastIndex, root);
+            applyHeap(array, lastIndex, root);
         }
-        return exchangesCounter;
     }
 
 

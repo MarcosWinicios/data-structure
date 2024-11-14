@@ -9,6 +9,8 @@ public class InsertionSort implements SortingAlgorithmsInterface{
     //O(N²) -> Mais rápido que o buble sort
     @Override
     public Result sort(int[] array) {
+        int exchanges = 0;
+
         int aux, j;
         for (int i = 1; i < array.length; i++) {//O(N)
             aux = array[i];
@@ -16,11 +18,13 @@ public class InsertionSort implements SortingAlgorithmsInterface{
             while (j >= 0 && array[j] > aux) {//O(N-1) -> O(N)
                 array[j + 1] = array[j];
                 j--;
+                exchanges++;
             }
             array[j + 1] = aux;
+            exchanges++;
         }
 
-        return new Result(array, 0);
+        return new Result(array, exchanges);
     }
 
     @Override
