@@ -28,10 +28,11 @@ public class ShellSort implements SortingAlgorithmsInterface{
                 while (j >= h && array[j - h] > element){
                     array[j] = array[j - h];
                     j = j - h;
+                }
+                if(array[j] != element){
+                    array[j] = element;
                     exchangesCounter++;
                 }
-                array[j] = element;
-                exchangesCounter++;
             }
             h = h /2;
         }
