@@ -11,8 +11,8 @@ import com.studies.utils.Utils;
 
 public class Main {
 
-//    private final static int[] DESORDERED_ARRAY = Utils.generateRandomIntegerArray(10);
-    private final static int[] DESORDERED_ARRAY = {2, 10, 4, 7, 1, 8, 9, 3, 6, 5};
+    private final static int[] DESORDERED_ARRAY = Utils.generateRandomIntegerArray(10000);
+//    private final static int[] DESORDERED_ARRAY = {2, 10, 4, 7, 1, 8, 9, 3, 6, 5};
 
     public static void main(String[] args) {
         SortingAlgorithmsInterface bubbleSort = new BubbleSort();
