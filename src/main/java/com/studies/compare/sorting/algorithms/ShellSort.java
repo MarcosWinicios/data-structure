@@ -8,6 +8,7 @@ public class ShellSort implements SortingAlgorithmsInterface{
 
     @Override
     public Result sort(int[] array) {
+        int exchangesCounter = 0;
         int h = 1;
         int size = array.length;
 
@@ -27,13 +28,15 @@ public class ShellSort implements SortingAlgorithmsInterface{
                 while (j >= h && array[j - h] > element){
                     array[j] = array[j - h];
                     j = j - h;
+                    exchangesCounter++;
                 }
                 array[j] = element;
+                exchangesCounter++;
             }
             h = h /2;
         }
 
-        return new Result(array, 0);
+        return new Result(array, exchangesCounter);
     }
 
     @Override
