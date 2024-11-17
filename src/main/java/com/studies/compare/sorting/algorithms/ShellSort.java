@@ -8,7 +8,7 @@ public class ShellSort implements SortingAlgorithmsInterface{
 
     @Override
     public Result sort(int[] array) {
-        int exchangesCounter = 0;
+        long exchangesCounter = 0L;
         int h = 1;
         int size = array.length;
 
@@ -37,7 +37,7 @@ public class ShellSort implements SortingAlgorithmsInterface{
             h = h /2;
         }
 
-        return new Result(array, exchangesCounter);
+        return new Result(array, exchangesCounter, this.name);
     }
 
     @Override

@@ -5,7 +5,7 @@ import com.studies.compare.sorting.Result;
 public class HeapSort implements SortingAlgorithmsInterface{
 
     private final String name =  "HEAP SORT";
-    private int exchangesCounter = 0;
+    private long exchangesCounter = 0L;
 
     @Override
     public Result sort(int[] array) {
@@ -38,7 +38,7 @@ public class HeapSort implements SortingAlgorithmsInterface{
             applyHeap(array, lastIndex, 0);
         }
 
-        return new Result(array, exchangesCounter);
+        return new Result(array, exchangesCounter, this.name);
     }
 
 

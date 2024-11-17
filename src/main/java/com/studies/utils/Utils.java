@@ -28,7 +28,8 @@ public class Utils {
     }
 
     public static <T> void printList(List<T> list) {
-        System.out.println("\n" + list.toString());
+//        System.out.println("\n" + list.toString());
+        list.forEach(System.out::println);
     }
 
     public static <T> void printListIndexes(List<T> list) {

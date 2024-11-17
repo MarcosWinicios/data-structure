@@ -5,15 +5,15 @@ import com.studies.compare.sorting.Result;
 public class QuickSort implements SortingAlgorithmsInterface{
 
     private final String name = "QUICK SORT";
-    private int exchangesCounter;
+    private long exchangesCounter;
 
     @Override
     public Result sort(int[] array) {
-        exchangesCounter = 0;
+        exchangesCounter = 0L;
 
         quickSort(array, 0, array.length - 1);
 
-        return new Result(array, exchangesCounter);
+        return new Result(array, exchangesCounter, this.name);
     }
 
     private void quickSort(int[] array, int left, int right){

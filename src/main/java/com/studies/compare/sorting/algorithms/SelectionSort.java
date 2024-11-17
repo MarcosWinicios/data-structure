@@ -10,7 +10,7 @@ public class SelectionSort implements SortingAlgorithmsInterface{
     @Override
     public Result sort(int[] array) {
         int minorElementPosition, aux;
-        int exchangesCounter = 0;
+        long exchangesCounter = 0L;
         for (int i = 0; i < array.length; i++) {//O(N)
 
             minorElementPosition = i;
@@ -27,7 +27,7 @@ public class SelectionSort implements SortingAlgorithmsInterface{
             exchangesCounter++;
         }
 
-        return new Result(array, exchangesCounter);
+        return new Result(array, exchangesCounter, this.name);
     }
 
     @Override

@@ -10,7 +10,7 @@ public class BubbleSort implements SortingAlgorithmsInterface{
     @Override
     public Result sort(int[] array) {
         int aux = 0;
-        int exchangesCounter = 0;
+        long exchangesCounter = 0L;
         for (int i = 0; i < array.length; i++) {//(O(N)
             for (int j = i + 1; j < array.length; j++) {//O(N-1) -> O(N)
                 if (array[i] > array[j]) {
@@ -21,7 +21,7 @@ public class BubbleSort implements SortingAlgorithmsInterface{
                 }
             }
         }
-        return new Result(array, exchangesCounter);
+        return new Result(array, exchangesCounter, this.name);
     }
 
     @Override
