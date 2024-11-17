@@ -1,20 +1,30 @@
-package com.studies.compare.sorting;
+package com.studies.algorithms.sorting.starters;
 
-import com.studies.compare.sorting.algorithms.BubbleSort;
-import com.studies.compare.sorting.algorithms.HeapSort;
-import com.studies.compare.sorting.algorithms.InsertionSort;
-import com.studies.compare.sorting.algorithms.QuickSort;
-import com.studies.compare.sorting.algorithms.SelectionSort;
-import com.studies.compare.sorting.algorithms.ShellSort;
-import com.studies.compare.sorting.algorithms.SortingAlgorithmsInterface;
+import com.studies.algorithms.sorting.model.Result;
+import com.studies.algorithms.sorting.operations.BubbleSort;
+import com.studies.algorithms.sorting.operations.HeapSort;
+import com.studies.algorithms.sorting.operations.InsertionSort;
+import com.studies.algorithms.sorting.operations.QuickSort;
+import com.studies.algorithms.sorting.operations.SelectionSort;
+import com.studies.algorithms.sorting.operations.ShellSort;
+import com.studies.algorithms.sorting.operations.SortingAlgorithmsInterface;
+import com.studies.algorithms.sorting.service.ResultService;
+import com.studies.config.ConnectionDatabase;
 import com.studies.utils.Utils;
 
-public class Main {
+import java.util.UUID;
 
-    private final static int[] DESORDERED_ARRAY = Utils.generateRandomIntegerArray(10000);
+public class RegisterMetrics {
+
+    private final static int[] DESORDERED_ARRAY = Utils.generateRandomIntegerArray(1000000);
 //    private final static int[] DESORDERED_ARRAY = {2, 10, 4, 7, 1, 8, 9, 3, 6, 5};
+    private static String groupId = "2cb9a8f1-4c65-41d7-8a1a-46f2ff425350";
+//    private static String groupId;
 
     public static void main(String[] args) {
+
+        ConnectionDatabase.getInstance();
+
         SortingAlgorithmsInterface bubbleSort = new BubbleSort();
         SortingAlgorithmsInterface insertionSort =  new InsertionSort();
         SortingAlgorithmsInterface selectionSort = new SelectionSort();
@@ -40,10 +50,20 @@ public class Main {
         Result result = sortInterface.sort(array);
 
         end = System.currentTimeMillis();
+
         result.setTime(end - init);
+        result.setGroupId(getGroupId());
 
         System.out.println(result.toString() + "\n");
-
         Utils.printLine(result.toString().length());
+
+        new ResultService().save(result);
+    }
+
+    private static String getGroupId(){
+        if(groupId == null){
+            groupId = UUID.randomUUID().toString();
+        }
+        return groupId;
     }
 }
