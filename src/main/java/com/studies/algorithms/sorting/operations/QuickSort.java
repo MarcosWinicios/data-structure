@@ -1,6 +1,6 @@
-package com.studies.compare.sorting.algorithms;
+package com.studies.algorithms.sorting.operations;
 
-import com.studies.compare.sorting.Result;
+import com.studies.algorithms.sorting.model.Result;
 
 public class QuickSort implements SortingAlgorithmsInterface{
 

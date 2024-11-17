@@ -1,4 +1,4 @@
-package com.studies.compare.sorting;
+package com.studies.algorithms.sorting.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
