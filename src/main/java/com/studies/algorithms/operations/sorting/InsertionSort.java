@@ -1,4 +1,4 @@
-package com.studies.algorithms.sorting;
+package com.studies.algorithms.operations.sorting;
 
 import com.studies.algorithms.metrics.ResultSorting;
 

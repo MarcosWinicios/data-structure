@@ -1,9 +1,9 @@
 package com.studies.algorithms.programs;
 
 import com.studies.algorithms.metrics.ResultSearch;
-import com.studies.algorithms.search.BinarySearch;
-import com.studies.algorithms.search.LinearSearch;
-import com.studies.algorithms.search.SearchAlgorithmInterface;
+import com.studies.algorithms.operations.search.BinarySearch;
+import com.studies.algorithms.operations.search.LinearSearch;
+import com.studies.algorithms.operations.search.SearchAlgorithmInterface;
 import com.studies.utils.Utils;
 
 import java.util.Arrays;

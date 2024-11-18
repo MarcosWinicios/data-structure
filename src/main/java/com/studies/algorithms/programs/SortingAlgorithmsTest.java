@@ -1,13 +1,13 @@
 package com.studies.algorithms.programs;
 
 import com.studies.algorithms.metrics.ResultSorting;
-import com.studies.algorithms.sorting.BubbleSort;
-import com.studies.algorithms.sorting.HeapSort;
-import com.studies.algorithms.sorting.InsertionSort;
-import com.studies.algorithms.sorting.QuickSort;
-import com.studies.algorithms.sorting.SelectionSort;
-import com.studies.algorithms.sorting.ShellSort;
-import com.studies.algorithms.sorting.SortingAlgorithmsInterface;
+import com.studies.algorithms.operations.sorting.BubbleSort;
+import com.studies.algorithms.operations.sorting.HeapSort;
+import com.studies.algorithms.operations.sorting.InsertionSort;
+import com.studies.algorithms.operations.sorting.QuickSort;
+import com.studies.algorithms.operations.sorting.SelectionSort;
+import com.studies.algorithms.operations.sorting.ShellSort;
+import com.studies.algorithms.operations.sorting.SortingAlgorithmsInterface;
 import com.studies.algorithms.repository.SortingRepository;
 import com.studies.config.ConnectionDatabase;
 import com.studies.utils.Utils;
