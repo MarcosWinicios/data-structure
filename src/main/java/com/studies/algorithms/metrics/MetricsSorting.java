@@ -1,4 +1,4 @@
-package com.studies.algorithms.sorting.model;
+package com.studies.algorithms.metrics;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,7 +11,7 @@ import java.util.Map;
 @Getter
 @Setter
 @AllArgsConstructor
-public class Metric {
+public class MetricsSorting {
 
     private final String[] header = {"algorithm", "10", "100", "1000", "10000", "100000", "1000000"};
     private Map<String, List<Long>> metricTimes;

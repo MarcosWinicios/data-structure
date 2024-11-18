@@ -1,11 +1,11 @@
-package com.studies.algorithms.sorting.operations;
+package com.studies.algorithms.sorting;
 
-import com.studies.algorithms.sorting.model.Result;
+import com.studies.algorithms.metrics.ResultSorting;
 
 public interface SortingAlgorithmsInterface {
 
 
-    public Result sort(int[] array);
+    public ResultSorting sort(int[] array);
 
     public default String getMessage(){
         return "Ordenação utilizando o algoritmo " + getName();

@@ -1,6 +1,6 @@
-package com.studies.algorithms.sorting.operations;
+package com.studies.algorithms.sorting;
 
-import com.studies.algorithms.sorting.model.Result;
+import com.studies.algorithms.metrics.ResultSorting;
 
 public class QuickSort implements SortingAlgorithmsInterface{
 
@@ -8,12 +8,12 @@ public class QuickSort implements SortingAlgorithmsInterface{
     private long exchangesCounter;
 
     @Override
-    public Result sort(int[] array) {
+    public ResultSorting sort(int[] array) {
         exchangesCounter = 0L;
 
         quickSort(array, 0, array.length - 1);
 
-        return new Result(array, exchangesCounter, this.name);
+        return new ResultSorting(array, exchangesCounter, this.name);
     }
 
     private void quickSort(int[] array, int left, int right){

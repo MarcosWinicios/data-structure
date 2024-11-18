@@ -1,28 +1,28 @@
-package com.studies.algorithms.sorting.service;
+package com.studies.algorithms.repository;
 
-import com.studies.algorithms.sorting.model.Result;
+import com.studies.algorithms.metrics.ResultSorting;
 import com.studies.config.ConnectionDatabase;
 import jakarta.persistence.EntityManager;
 
 import java.util.List;
 
-public class ResultService {
+public class SortingRepository {
 
     private final EntityManager entityManager;
 
-    public ResultService() {
+    public SortingRepository() {
         this.entityManager = ConnectionDatabase.getInstance().getConnection().createEntityManager();
     }
 
-    public Result save(Result result) {
+    public ResultSorting save(ResultSorting result) {
         entityManager.getTransaction().begin();
         result = this.entityManager.merge(result);
         entityManager.getTransaction().commit();
         return result;
     }
 
-    public List<Result> findByGroupId(String groupId) {
-        return entityManager.createQuery("from Result", Result.class).getResultList();
+    public List<ResultSorting> findByGroupId(String groupId) {
+        return entityManager.createQuery("from ResultSorting", ResultSorting.class).getResultList();
     }
 
 }

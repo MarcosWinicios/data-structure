@@ -1,6 +1,6 @@
-package com.studies.algorithms.sorting.operations;
+package com.studies.algorithms.sorting;
 
-import com.studies.algorithms.sorting.model.Result;
+import com.studies.algorithms.metrics.ResultSorting;
 
 public class BubbleSort implements SortingAlgorithmsInterface{
 
@@ -8,7 +8,7 @@ public class BubbleSort implements SortingAlgorithmsInterface{
 
     //O(N²)
     @Override
-    public Result sort(int[] array) {
+    public ResultSorting sort(int[] array) {
         int aux = 0;
         long exchangesCounter = 0L;
         for (int i = 0; i < array.length; i++) {//(O(N)
@@ -21,7 +21,7 @@ public class BubbleSort implements SortingAlgorithmsInterface{
                 }
             }
         }
-        return new Result(array, exchangesCounter, this.name);
+        return new ResultSorting(array, exchangesCounter, this.name);
     }
 
     @Override

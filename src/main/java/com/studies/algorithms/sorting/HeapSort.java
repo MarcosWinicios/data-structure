@@ -1,6 +1,6 @@
-package com.studies.algorithms.sorting.operations;
+package com.studies.algorithms.sorting;
 
-import com.studies.algorithms.sorting.model.Result;
+import com.studies.algorithms.metrics.ResultSorting;
 
 public class HeapSort implements SortingAlgorithmsInterface{
 
@@ -8,7 +8,7 @@ public class HeapSort implements SortingAlgorithmsInterface{
     private long exchangesCounter = 0L;
 
     @Override
-    public Result sort(int[] array) {
+    public ResultSorting sort(int[] array) {
 
         /**
          * Percorre o array da metade ao inicio aplicando o heap. Utilizando o conceito de árvore.
@@ -38,7 +38,7 @@ public class HeapSort implements SortingAlgorithmsInterface{
             applyHeap(array, lastIndex, 0);
         }
 
-        return new Result(array, exchangesCounter, this.name);
+        return new ResultSorting(array, exchangesCounter, this.name);
     }
 
 

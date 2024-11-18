@@ -1,13 +1,13 @@
-package com.studies.algorithms.sorting.operations;
+package com.studies.algorithms.sorting;
 
-import com.studies.algorithms.sorting.model.Result;
+import com.studies.algorithms.metrics.ResultSorting;
 
 public class ShellSort implements SortingAlgorithmsInterface{
 
     private final String name = "SHELL SORT";
 
     @Override
-    public Result sort(int[] array) {
+    public ResultSorting sort(int[] array) {
         long exchangesCounter = 0L;
         int h = 1;
         int size = array.length;
@@ -37,7 +37,7 @@ public class ShellSort implements SortingAlgorithmsInterface{
             h = h /2;
         }
 
-        return new Result(array, exchangesCounter, this.name);
+        return new ResultSorting(array, exchangesCounter, this.name);
     }
 
     @Override

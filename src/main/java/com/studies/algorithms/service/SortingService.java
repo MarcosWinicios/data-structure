@@ -1,7 +1,7 @@
-package com.studies.algorithms.sorting.service;
+package com.studies.algorithms.service;
 
-import com.studies.algorithms.sorting.model.Metric;
-import com.studies.algorithms.sorting.model.Result;
+import com.studies.algorithms.metrics.MetricsSorting;
+import com.studies.algorithms.metrics.ResultSorting;
 import com.studies.utils.CsvUtils;
 
 import java.util.ArrayList;
@@ -9,10 +9,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MetricService {
+public class SortingService {
 
-    public void generateFile(List<Result> resultList){
-        Metric metric =  handleResultListToMetricsMaps(resultList);
+    public void generateFile(List<ResultSorting> resultList){
+        MetricsSorting metric =  handleResultListToMetricsMaps(resultList);
 
         List<String[]> timeData = metric.getMetricTimeData();
         List<String[]> exchanges = metric.getMetricExchangesData();
@@ -22,7 +22,7 @@ public class MetricService {
     }
 
 
-    public Metric handleResultListToMetricsMaps(List<Result> metrics) {
+    public MetricsSorting handleResultListToMetricsMaps(List<ResultSorting> metrics) {
         long arraySize = 10L;
         Map<String, List<Long>> metricsTime = new HashMap<>();
         Map<String, List<Long>> metricsExchanges = new HashMap<>();
@@ -51,6 +51,6 @@ public class MetricService {
                     });
             arraySize = arraySize * 10;
         }
-        return new Metric(metricsTime, metricsExchanges);
+        return new MetricsSorting(metricsTime, metricsExchanges);
     }
 }

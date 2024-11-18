@@ -1,25 +1,25 @@
-package com.studies.algorithms.sorting.starters;
+package com.studies.algorithms.programs;
 
-import com.studies.algorithms.sorting.model.Result;
-import com.studies.algorithms.sorting.operations.BubbleSort;
-import com.studies.algorithms.sorting.operations.HeapSort;
-import com.studies.algorithms.sorting.operations.InsertionSort;
-import com.studies.algorithms.sorting.operations.QuickSort;
-import com.studies.algorithms.sorting.operations.SelectionSort;
-import com.studies.algorithms.sorting.operations.ShellSort;
-import com.studies.algorithms.sorting.operations.SortingAlgorithmsInterface;
-import com.studies.algorithms.sorting.service.ResultService;
+import com.studies.algorithms.metrics.ResultSorting;
+import com.studies.algorithms.sorting.BubbleSort;
+import com.studies.algorithms.sorting.HeapSort;
+import com.studies.algorithms.sorting.InsertionSort;
+import com.studies.algorithms.sorting.QuickSort;
+import com.studies.algorithms.sorting.SelectionSort;
+import com.studies.algorithms.sorting.ShellSort;
+import com.studies.algorithms.sorting.SortingAlgorithmsInterface;
+import com.studies.algorithms.repository.SortingRepository;
 import com.studies.config.ConnectionDatabase;
 import com.studies.utils.Utils;
 
 import java.util.UUID;
 
-public class RegisterMetrics {
+public class SortingAlgorithmsTest {
 
-    private final static int[] DESORDERED_ARRAY = Utils.generateRandomIntegerArray(1000000);
+    private final static int[] DESORDERED_ARRAY = Utils.generateRandomIntegerArray(10);
 //    private final static int[] DESORDERED_ARRAY = {2, 10, 4, 7, 1, 8, 9, 3, 6, 5};
-    private static String groupId = "2cb9a8f1-4c65-41d7-8a1a-46f2ff425350";
-//    private static String groupId;
+//    private static String groupId = "2cb9a8f1-4c65-41d7-8a1a-46f2ff425350";
+    private static String groupId;
 
     public static void main(String[] args) {
 
@@ -47,7 +47,7 @@ public class RegisterMetrics {
         long init = System.currentTimeMillis();
         long end;
 
-        Result result = sortInterface.sort(array);
+        ResultSorting result = sortInterface.sort(array);
 
         end = System.currentTimeMillis();
 
@@ -57,7 +57,7 @@ public class RegisterMetrics {
         System.out.println(result.toString() + "\n");
         Utils.printLine(result.toString().length());
 
-        new ResultService().save(result);
+        new SortingRepository().save(result);
     }
 
     private static String getGroupId(){

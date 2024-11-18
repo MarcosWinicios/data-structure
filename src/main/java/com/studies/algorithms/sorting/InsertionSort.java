@@ -1,6 +1,6 @@
-package com.studies.algorithms.sorting.operations;
+package com.studies.algorithms.sorting;
 
-import com.studies.algorithms.sorting.model.Result;
+import com.studies.algorithms.metrics.ResultSorting;
 
 public class InsertionSort implements SortingAlgorithmsInterface{
 
@@ -8,7 +8,7 @@ public class InsertionSort implements SortingAlgorithmsInterface{
 
     //O(N²) -> Mais rápido que o buble sort
     @Override
-    public Result sort(int[] array) {
+    public ResultSorting sort(int[] array) {
         long exchangesCounter = 0L;
 
         int aux, j;
@@ -24,7 +24,7 @@ public class InsertionSort implements SortingAlgorithmsInterface{
             exchangesCounter++;
         }
 
-        return new Result(array, exchangesCounter, this.name);
+        return new ResultSorting(array, exchangesCounter, this.name);
     }
 
     @Override

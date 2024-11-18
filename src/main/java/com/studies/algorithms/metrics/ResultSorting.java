@@ -1,4 +1,4 @@
-package com.studies.algorithms.sorting.model;
+package com.studies.algorithms.metrics;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,8 +18,8 @@ import java.util.Arrays;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "tb_result")
-public class Result {
+@Table(name = "tb_result_sorting")
+public class ResultSorting {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -33,7 +33,7 @@ public class Result {
     private long time;
     private String groupId;
 
-    public Result(int[] array, long exchanges, String algorithmName) {
+    public ResultSorting(int[] array, long exchanges, String algorithmName) {
         this.array = array;
         this.arraySize = array.length;
         this.exchanges = exchanges;
@@ -41,7 +41,7 @@ public class Result {
     }
 
 
-    public Result(String id, String algorithmName, int arraySize, long exchanges, long time, String groupId) {
+    public ResultSorting(String id, String algorithmName, int arraySize, long exchanges, long time, String groupId) {
         Id = id;
         this.array = new int[arraySize];
         this.algorithmName = algorithmName;
