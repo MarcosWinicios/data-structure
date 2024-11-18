@@ -9,8 +9,9 @@ Projeto dedicado à prática e a estudos referentes a estrutura de dados utiliza
 ### Algoritmos já adicionados
 - Linear Search
 - Binary Search
-- Buble Sort
+- Bubble Sort
 - Insertion Sort
 - Selection Sort
 - Heap Sort
 - Quick Sort
+- Shell Sort
