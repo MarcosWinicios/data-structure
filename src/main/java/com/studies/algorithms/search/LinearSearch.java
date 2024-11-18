@@ -1,4 +1,4 @@
-package com.studies.algorithms.search.operations;
+package com.studies.algorithms.search;
 
 import com.studies.algorithms.metrics.ResultSearch;
 

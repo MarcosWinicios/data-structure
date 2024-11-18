@@ -1,14 +1,15 @@
-package com.studies.algorithms.search.starters;
+package com.studies.algorithms.programs;
 
 import com.studies.algorithms.metrics.ResultSearch;
-import com.studies.algorithms.search.operations.BinarySearch;
-import com.studies.algorithms.search.operations.LinearSearch;
-import com.studies.algorithms.search.operations.SearchAlgorithmInterface;
+import com.studies.algorithms.search.BinarySearch;
+import com.studies.algorithms.search.LinearSearch;
+import com.studies.algorithms.search.SearchAlgorithmInterface;
 import com.studies.utils.Utils;
 
 import java.util.Arrays;
+import java.util.UUID;
 
-public class Find {
+public class SearchAlgorithmsTest {
     private static String groupId = "2cb9a8f1-4c65-41d7-8a1a-46f2ff425350";
 
     private static int[] ARRAY = Utils.generateUniqueRandomArray(100000);
@@ -38,12 +39,19 @@ public class Find {
         end = System.currentTimeMillis();
 
         result.setTime(end - init);
-        result.setGroupId(groupId);
+        result.setGroupId(getGroupId());
 
 
         System.out.println(result.toString() + "\n");
 
         Utils.printLine(result.toString().length());
 
+    }
+
+    private static String getGroupId(){
+        if(groupId == null){
+            groupId = UUID.randomUUID().toString();
+        }
+        return groupId;
     }
 }
