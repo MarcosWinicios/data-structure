@@ -15,3 +15,13 @@ Projeto dedicado à prática e a estudos referentes a estrutura de dados utiliza
 - Heap Sort
 - Quick Sort
 - Shell Sort
+
+### Comparando algoritmos de ordenação
+
+#### Comparando tempo de execução
+
+![img-sorting-algorithms-time](assets/sorting-algorithms-time-comparison.png)
+
+#### Comparando quantidade de trocas de posição
+
+![img-sorting-algorithms-exchanges](assets/sorting-algorithms-exchanges-comparison.png)
