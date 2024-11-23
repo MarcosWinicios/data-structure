@@ -2,15 +2,15 @@ package com.studies.stack;
 
 import com.studies.linkedList.LinkedList;
 
-public class Stack {
+public class Stack<Type> {
 
-    LinkedList<String> list;
+    LinkedList<Type> list;
 
     public Stack(){
         this.list =  new LinkedList<>();
     }
 
-    public  void add(String newValue){
+    public  void add(Type newValue){
         this.list.addStart(newValue);
     }
 
@@ -18,7 +18,7 @@ public class Stack {
         this.list.remove(this.get());
     }
 
-    public String get(){
+    public Type get(){
         return this.list.getFirst().getValue();
     }
 }
