@@ -95,5 +95,18 @@ public class LinkedList<Type> {
     public void setSize(int size) {
         this.size = size;
     }
+
+    public void addStart(Type newValue) {
+        Node<Type>  newNode = new Node<Type>(newValue);
+
+        if (this.first == null && this.last == null) {
+            this.first = newNode;
+            this.last = newNode;
+        } else {
+           newNode.setNext(this.first);
+            this.first = newNode;
+        }
+        this.size++;
+    }
 }
 
