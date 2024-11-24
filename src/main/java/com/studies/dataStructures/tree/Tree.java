@@ -8,6 +8,7 @@ import lombok.Setter;
 public class Tree<Type extends Comparable> {
 
     private Element<Type> root;
+    private boolean auxPrintFirst = false;
 
     public Tree(){
         this.root = null;
@@ -45,16 +46,25 @@ public class Tree<Type extends Comparable> {
 
         if(current != null) {
             inOrder(current.getLeft());
-            System.out.println(current.getValue());
+            System.out.print(current.getValue() + " ");
             inOrder(current.getRight());
         }
     }
 
     public void preOrder(Element<Type> current) {
         if(current != null) {
-            System.out.println(current.getValue());
+            System.out.print(current.getValue() + " ");
             preOrder(current.getLeft());
             preOrder(current.getRight());
+        }
+    }
+
+    public void postOrder(Element<Type> current) {
+
+        if(current != null) {
+            postOrder(current.getLeft());
+            postOrder(current.getRight());
+            System.out.print(current.getValue() + " ");
         }
     }
 }
