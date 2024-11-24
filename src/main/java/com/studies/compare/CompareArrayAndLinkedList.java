@@ -1,7 +1,7 @@
 package com.studies.compare;
 
-import com.studies.linkedList.IteratorLinkedList;
-import com.studies.linkedList.LinkedList;
+import com.studies.dataStructures.linkedList.IteratorLinkedList;
+import com.studies.dataStructures.linkedList.LinkedList;
 
 import java.util.ArrayList;
 

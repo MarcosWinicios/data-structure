@@ -1,4 +1,4 @@
-package com.studies.queue;
+package com.studies.dataStructures.queue;
 
 public class Program {
 

@@ -1,4 +1,4 @@
-package com.studies.linkedList;
+package com.studies.dataStructures.linkedList;
 
 public class IteratorLinkedList<Type> {
 

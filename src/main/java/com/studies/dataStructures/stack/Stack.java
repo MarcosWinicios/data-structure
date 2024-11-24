@@ -1,6 +1,6 @@
-package com.studies.stack;
+package com.studies.dataStructures.stack;
 
-import com.studies.linkedList.LinkedList;
+import com.studies.dataStructures.linkedList.LinkedList;
 
 public class Stack<Type> {
 

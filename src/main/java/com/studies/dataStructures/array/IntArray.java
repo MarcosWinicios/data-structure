@@ -1,4 +1,4 @@
-package com.studies.array;
+package com.studies.dataStructures.array;
 
 public class IntArray {
     public static void main(String[] args) {

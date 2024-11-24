@@ -1,6 +1,6 @@
-package com.studies.queue;
+package com.studies.dataStructures.queue;
 
-import com.studies.linkedList.LinkedList;
+import com.studies.dataStructures.linkedList.LinkedList;
 
 public class Queue<Type> {
 

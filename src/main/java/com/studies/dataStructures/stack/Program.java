@@ -1,4 +1,4 @@
-package com.studies.stack;
+package com.studies.dataStructures.stack;
 
 public class Program {
 
