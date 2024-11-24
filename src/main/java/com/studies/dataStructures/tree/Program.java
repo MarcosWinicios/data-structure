@@ -16,6 +16,9 @@ public class Program {
 
         System.out.println("Imprimindo árvore Em-ordem: ");
         tree.inOrder(tree.getRoot());
+
+        System.out.println("Imprimindo árvore Pré-ordem: ");
+        tree.preOrder(tree.getRoot());
     }
 
 }

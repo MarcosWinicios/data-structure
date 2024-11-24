@@ -49,4 +49,12 @@ public class Tree<Type extends Comparable> {
             inOrder(current.getRight());
         }
     }
+
+    public void preOrder(Element<Type> current) {
+        if(current != null) {
+            System.out.println(current.getValue());
+            preOrder(current.getLeft());
+            preOrder(current.getRight());
+        }
+    }
 }
