@@ -1,6 +1,10 @@
 package com.studies.dataStructures.tree;
 
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class Tree<Type extends Comparable> {
 
     private Element<Type> root;
@@ -37,4 +41,12 @@ public class Tree<Type extends Comparable> {
         }
     }
 
+    public void inOrder(Element<Type> current) {
+
+        if(current != null) {
+            inOrder(current.getLeft());
+            System.out.println(current.getValue());
+            inOrder(current.getRight());
+        }
+    }
 }

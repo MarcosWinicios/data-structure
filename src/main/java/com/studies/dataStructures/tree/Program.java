@@ -6,7 +6,16 @@ public class Program {
         Tree<Integer> tree =  new Tree<>();
 
         tree.add(10);
+        tree.add(8);
         tree.add(5);
+        tree.add(9);
+        tree.add(7);
+        tree.add(18);
+        tree.add(13);
+        tree.add(20);
+
+        System.out.println("Imprimindo árvore Em-ordem: ");
+        tree.inOrder(tree.getRoot());
     }
 
 }
