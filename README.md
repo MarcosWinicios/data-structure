@@ -7,6 +7,7 @@ Projeto dedicado à prática e a estudos referentes a estrutura de dados utiliza
 - Linked List (Lista encadeada)
 - Queue (Fila - Tipo abstrato de dados)
 - Stack (Pilha - Tipo abstrato de dados)
+- Binary Tree (Árvore binária)
 
 ### Algoritmos já adicionados
 - Linear Search
