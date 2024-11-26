@@ -17,11 +17,55 @@ public class Program {
         System.out.println("Imprimindo árvore Em-ordem: ");
         tree.inOrder(tree.getRoot()); //5 7 8 9 10 13 18 20
 
+        tree.remove(20);
+
+        System.out.println("\nImprimindo árvore Em-ordem após a remoção: ");
+        tree.inOrder(tree.getRoot()); //5 7 8 9 10 13 18 20
+
+        tree.remove(5);
+
+        System.out.println("\nImprimindo árvore Em-ordem após a remoção: ");
+        tree.inOrder(tree.getRoot()); //5 7 8 9 10 13 18 20
+
+
+        tree.remove(8);
+
+        System.out.println("\nImprimindo árvore Em-ordem após a remoção: ");
+        tree.inOrder(tree.getRoot()); //5 7 8 9 10 13 18 20
+
+
+        tree.remove(9);
+
+        System.out.println("\nImprimindo árvore Em-ordem após a remoção: ");
+        tree.inOrder(tree.getRoot()); //5 7 8 9 10 13 18 20
+
+
+        tree.remove(13);
+
+        System.out.println("\nImprimindo árvore Em-ordem após a remoção: ");
+        tree.inOrder(tree.getRoot()); //5 7 8 9 10 13 18 20
+
+        tree.remove(7);
+
+        System.out.println("\nImprimindo árvore Em-ordem após a remoção: ");
+        tree.inOrder(tree.getRoot()); //5 7 8 9 10 13 18 20
+
+        tree.remove(18);
+
+        System.out.println("\nImprimindo árvore Em-ordem após a remoção: ");
+        tree.inOrder(tree.getRoot()); //5 7 8 9 10 13 18 20
+
+        tree.remove(10);
+
+        System.out.println("\nImprimindo árvore Em-ordem após a remoção: ");
+        tree.inOrder(tree.getRoot()); //5 7 8 9 10 13 18 20
+
+        /*
         System.out.println("\nImprimindo árvore Pré-ordem: ");
         tree.preOrder(tree.getRoot());//10 8 5 7 9 18 13 20
 
         System.out.println("\nImprimindo árvore Pós-ordem: ");
-        tree.postOrder(tree.getRoot());
+        tree.postOrder(tree.getRoot());*/
     }
 
 }
