@@ -17,48 +17,15 @@ public class Program {
         System.out.println("Imprimindo árvore Em-ordem: ");
         tree.inOrder(tree.getRoot()); //5 7 8 9 10 13 18 20
 
-        tree.remove(20);
+        remove(tree, 20);
+        remove(tree, 5);
+        remove(tree, 8);
+        remove(tree, 9);
+        remove(tree, 13);
+        remove(tree, 7);
+        remove(tree, 18);
+        remove(tree, 10);
 
-        System.out.println("\nImprimindo árvore Em-ordem após a remoção: ");
-        tree.inOrder(tree.getRoot()); //5 7 8 9 10 13 18 20
-
-        tree.remove(5);
-
-        System.out.println("\nImprimindo árvore Em-ordem após a remoção: ");
-        tree.inOrder(tree.getRoot()); //5 7 8 9 10 13 18 20
-
-
-        tree.remove(8);
-
-        System.out.println("\nImprimindo árvore Em-ordem após a remoção: ");
-        tree.inOrder(tree.getRoot()); //5 7 8 9 10 13 18 20
-
-
-        tree.remove(9);
-
-        System.out.println("\nImprimindo árvore Em-ordem após a remoção: ");
-        tree.inOrder(tree.getRoot()); //5 7 8 9 10 13 18 20
-
-
-        tree.remove(13);
-
-        System.out.println("\nImprimindo árvore Em-ordem após a remoção: ");
-        tree.inOrder(tree.getRoot()); //5 7 8 9 10 13 18 20
-
-        tree.remove(7);
-
-        System.out.println("\nImprimindo árvore Em-ordem após a remoção: ");
-        tree.inOrder(tree.getRoot()); //5 7 8 9 10 13 18 20
-
-        tree.remove(18);
-
-        System.out.println("\nImprimindo árvore Em-ordem após a remoção: ");
-        tree.inOrder(tree.getRoot()); //5 7 8 9 10 13 18 20
-
-        tree.remove(10);
-
-        System.out.println("\nImprimindo árvore Em-ordem após a remoção: ");
-        tree.inOrder(tree.getRoot()); //5 7 8 9 10 13 18 20
 
         /*
         System.out.println("\nImprimindo árvore Pré-ordem: ");
@@ -66,6 +33,13 @@ public class Program {
 
         System.out.println("\nImprimindo árvore Pós-ordem: ");
         tree.postOrder(tree.getRoot());*/
+    }
+
+    private static void remove(Tree<Integer> tree, Integer value){
+
+        tree.remove(value);
+        System.out.println("\nImprimindo árvore Em-ordem após a remoção do valor: " + value);
+        tree.inOrder(tree.getRoot());
     }
 
 }
