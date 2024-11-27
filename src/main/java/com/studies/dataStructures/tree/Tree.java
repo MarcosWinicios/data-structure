@@ -3,6 +3,9 @@ package com.studies.dataStructures.tree;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 public class Tree<Type extends Comparable> {
@@ -42,42 +45,39 @@ public class Tree<Type extends Comparable> {
         }
     }
 
-    public void printInOrder(){
-        inOrder(this.root);
-    }
-
-    public void printPreOrder(){
-        preOrder(this.root);
-    }
-
-    public void printPostOrder(){
-        postOrder(this.root);
-    }
-
-    public void inOrder(Element<Type> current) {
+    public List<Type> toListInOrder(Element<Type> current) {
+        List<Type> result = new ArrayList<>();
 
         if (current != null) {
-            inOrder(current.getLeft());
-            System.out.print(current.getValue() + " ");
-            inOrder(current.getRight());
+            result.addAll(toListInOrder(current.getLeft()));
+            result.add(current.getValue());
+
+            result.addAll(toListInOrder(current.getRight()));
         }
+        return  result;
     }
 
-    public void preOrder(Element<Type> current) {
+    public List<Type> toListPreOrder(Element<Type> current) {
+        List<Type> result = new ArrayList<>();
+
         if (current != null) {
-            System.out.print(current.getValue() + " ");
-            preOrder(current.getLeft());
-            preOrder(current.getRight());
+            result.add(current.getValue());
+
+            result.addAll(toListPreOrder(current.getLeft()));
+            result.addAll(toListPreOrder(current.getRight()));
         }
+        return result;
     }
 
-    public void postOrder(Element<Type> current) {
+    public List<Type> toListPostOrder(Element<Type> current) {
+        List<Type> result = new ArrayList<>();
 
         if (current != null) {
-            postOrder(current.getLeft());
-            postOrder(current.getRight());
-            System.out.print(current.getValue() + " ");
+            result.addAll(toListPostOrder(current.getLeft()));
+            result.addAll(toListPostOrder(current.getRight()));
+            result.add(current.getValue());
         }
+        return result;
     }
 
     public boolean remove(Type value) {
