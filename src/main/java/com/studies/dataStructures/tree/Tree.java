@@ -45,6 +45,24 @@ public class Tree<Type extends Comparable> {
         }
     }
 
+    public void printInOrder(){
+        toListInOrder(this.root).forEach(item -> System.out.print(item + " "));
+
+        System.out.println();
+    }
+
+    public void printPreOrder(){
+        toListPreOrder(this.root).forEach(item -> System.out.print(item + " "));
+
+        System.out.println();
+    }
+
+    public void printPostOrder(){
+        toListPostOrder(this.root).forEach(item -> System.out.print(item + " "));;
+
+        System.out.println();
+    }
+
     public List<Type> toListInOrder(Element<Type> current) {
         List<Type> result = new ArrayList<>();
 

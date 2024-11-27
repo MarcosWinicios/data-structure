@@ -15,24 +15,23 @@ public class Program {
         tree.add(20);
 
         System.out.println("Imprimindo árvore Em-ordem: ");
-        tree.inOrder(tree.getRoot()); //5 7 8 9 10 13 18 20
+        tree.printInOrder(); //5 7 8 9 10 13 18 20
 
-        remove(tree, 20);
-        remove(tree, 5);
-        remove(tree, 8);
-        remove(tree, 9);
-        remove(tree, 13);
-        remove(tree, 7);
-        remove(tree, 18);
-        remove(tree, 10);
+//        remove(tree, 20);
+//        remove(tree, 5);
+//        remove(tree, 8);
+//        remove(tree, 9);
+//        remove(tree, 13);
+//        remove(tree, 7);
+//        remove(tree, 18);
+//        remove(tree, 10);
 
 
-        /*
         System.out.println("\nImprimindo árvore Pré-ordem: ");
-        tree.preOrder(tree.getRoot());//10 8 5 7 9 18 13 20
+        tree.printPreOrder();//10 8 5 7 9 18 13 20
 
         System.out.println("\nImprimindo árvore Pós-ordem: ");
-        tree.postOrder(tree.getRoot());*/
+        tree.printPostOrder();
     }
 
     private static void remove(Tree<Integer> tree, Integer value){
