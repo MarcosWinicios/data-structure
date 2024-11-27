@@ -42,6 +42,18 @@ public class Tree<Type extends Comparable> {
         }
     }
 
+    public void printInOrder(){
+        inOrder(this.root);
+    }
+
+    public void printPreOrder(){
+        preOrder(this.root);
+    }
+
+    public void printPostOrder(){
+        postOrder(this.root);
+    }
+
     public void inOrder(Element<Type> current) {
 
         if (current != null) {

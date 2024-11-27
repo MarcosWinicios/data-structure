@@ -39,7 +39,7 @@ public class Program {
 
         tree.remove(value);
         System.out.println("\nImprimindo árvore Em-ordem após a remoção do valor: " + value);
-        tree.inOrder(tree.getRoot());
+        tree.printInOrder();
     }
 
 }
