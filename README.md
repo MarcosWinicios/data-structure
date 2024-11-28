@@ -29,3 +29,7 @@ Projeto dedicado à prática e a estudos referentes a estrutura de dados utiliza
 #### Comparando quantidade de trocas de posição
 
 ![img-sorting-algorithms-exchanges](assets/sorting-algorithms-exchanges-comparison.png)
+
+#### Representação gráfica do exemplo de grafo implementado
+
+![graph](assets/graph.png)
