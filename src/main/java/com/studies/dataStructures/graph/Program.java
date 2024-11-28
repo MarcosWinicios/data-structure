@@ -17,5 +17,7 @@ public class Program {
         graph.addEdge(1.0, "João", "Creuza");
         graph.addEdge(2.0, "Cráudio", "Lorenzo");
         graph.addEdge(3.0, "Cráudio", "João");
+
+        graph.breadthFirstSearch();
     }
 }

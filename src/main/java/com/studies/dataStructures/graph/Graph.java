@@ -40,4 +40,34 @@ public class Graph<Type> {
         }
         return vertex;
     }
+
+    public void breadthFirstSearch(){
+        List<Vertex<Type>> markedList =  new ArrayList<>();
+        List<Vertex<Type>> queue =  new ArrayList<>();
+
+        Vertex<Type> current = this.vertices.getFirst();
+//        Vertex<Type> current = this.vertices.get(4);
+
+        markedList.add(current);
+
+        System.out.println(current.getData());
+
+        queue.add(current);
+
+        while (!queue.isEmpty()){
+            Vertex<Type> visited = queue.getFirst();
+
+            for (int i = 0; i < visited.getExitEdges().size(); i++){
+                Vertex<Type> next = visited.getExitEdges().get(i).getFinish();
+                if(!markedList.contains(next)){//se o vértice ainda não foi marcado
+                    markedList.add(next);
+                    System.out.println(next.getData());
+                    queue.add(next);
+                }
+            }
+
+            queue.removeFirst();
+        }
+
+    }
 }
