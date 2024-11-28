@@ -11,8 +11,8 @@ import java.util.List;
 public class Vertex<Type> {
 
     private Type data;
-    private List<Type> entranceEdges;
-    private List<Type> exitEdges;
+    private List<Edge<Type>> entranceEdges;
+    private List<Edge<Type>> exitEdges;
 
     public  Vertex(Type data){
         this.data = data;
@@ -27,6 +27,4 @@ public class Vertex<Type> {
     public void addExitEdges(Edge<Type> edge){
         this.exitEdges.add(edge);
     }
-
-
 }

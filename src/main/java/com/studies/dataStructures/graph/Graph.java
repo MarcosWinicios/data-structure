@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Graph<Type> {
 
-    private List<Type> vertices;
-    private List<Type> edges;
+    private List<Vertex<Type>> vertices;
+    private List<Edge<Type>> edges;
 
     public Graph(){
         this.vertices = new ArrayList<>();
@@ -17,7 +17,19 @@ public class Graph<Type> {
 
     }
 
-    public void addEdge(Double weight, Type start, Type finish){
+    public void addEdge(Double weight, Type startData, Type finishData){
 
+    }
+
+    public Vertex<Type> getVertex(Type data){
+        Vertex<Type> vertex = null;
+
+        for(Vertex<Type> item : this.vertices){
+            if(item.getData().equals(data)){
+                vertex = item;
+                break;
+            }
+        }
+        return vertex;
     }
 }
