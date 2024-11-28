@@ -8,6 +8,7 @@ Projeto dedicado à prática e a estudos referentes a estrutura de dados utiliza
 - Queue (Fila - Tipo abstrato de dados)
 - Stack (Pilha - Tipo abstrato de dados)
 - Binary Tree (Árvore binária)
+- Graph (Grafo)
 
 ### Algoritmos já adicionados
 - Linear Search
