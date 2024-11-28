@@ -17,6 +17,7 @@ public class Program {
         System.out.println("Imprimindo árvore Em-ordem: ");
         tree.printInOrder(); //5 7 8 9 10 13 18 20
 
+//        remove(tree, 21);
 //        remove(tree, 20);
 //        remove(tree, 5);
 //        remove(tree, 8);
@@ -27,11 +28,11 @@ public class Program {
 //        remove(tree, 10);
 
 
-        System.out.println("\nImprimindo árvore Pré-ordem: ");
-        tree.printPreOrder();//10 8 5 7 9 18 13 20
-
-        System.out.println("\nImprimindo árvore Pós-ordem: ");
-        tree.printPostOrder();
+//        System.out.println("\nImprimindo árvore Pré-ordem: ");
+//        tree.printPreOrder();//10 8 5 7 9 18 13 20
+//
+//        System.out.println("\nImprimindo árvore Pós-ordem: ");
+//        tree.printPostOrder();
     }
 
     private static void remove(Tree<Integer> tree, Integer value){

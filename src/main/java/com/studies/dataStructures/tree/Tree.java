@@ -98,7 +98,7 @@ public class Tree<Type extends Comparable> {
         return result;
     }
 
-    public boolean remove(Type value) {
+    public void remove(Type value) {
         //buscar o elemento na árvore
         Element<Type> current = this.root;
         Element<Type> currentParent = null;
@@ -178,10 +178,8 @@ public class Tree<Type extends Comparable> {
                     this.root = null;
                 }
             }
-
-            return true;
         } else {
-            return false;
+            throw new RuntimeException("Not found element");
         }
     }
 }
