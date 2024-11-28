@@ -19,7 +19,14 @@ public class Graph<Type> {
     }
 
     public void addEdge(Double weight, Type startData, Type finishData){
+        Vertex<Type> start = this.getVertex(startData);
+        Vertex<Type> finish = this.getVertex(finishData);
 
+        Edge<Type> newEdge = new Edge<>(weight, start, finish);
+        start.addExitEdges(newEdge);
+        finish.addEntranceEdges(newEdge);
+
+        this.edges.add(newEdge);
     }
 
     public Vertex<Type> getVertex(Type data){
