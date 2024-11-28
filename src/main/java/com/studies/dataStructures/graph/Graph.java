@@ -14,7 +14,8 @@ public class Graph<Type> {
     }
 
     public void addVertex(Type data){
-
+        Vertex<Type> newVertex = new Vertex<>(data);
+        this.vertices.add(newVertex);
     }
 
     public void addEdge(Double weight, Type startData, Type finishData){
